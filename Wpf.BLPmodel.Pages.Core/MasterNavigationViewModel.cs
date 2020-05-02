@@ -1,0 +1,46 @@
+﻿using System;
+using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.Regions;
+using Wpf.BLPmodel.Modules;
+using Microsoft.Practices.Prism.Modularity;
+using System.ComponentModel;
+using Microsoft.Practices.ServiceLocation;
+
+/*
+ Наша базовая модель представления
+ BindableBase - MVVM реализация из PRISM.Mvvm
+ INavigationAware - Prism.Regions (Отвечает за навигацию)
+
+    добавлен
+ IRegionMemberLifetime - интерфейс для утсановки жизна формы при её закрытии или переходе на другую страницу.
+ KeepAlive = false , форма будет удалена из региона при переходе на другую форму. 
+*/
+
+namespace Wpf.BLPmodel.Pages.Core {
+
+    /*Класс объявлен абстрактным, нельзя стоздать его экземпляр только наследоваться или привести к нему */
+    public abstract class MasterNavigationViewModel : BindableBase, INavigationAware, IRegionMemberLifetime {
+        
+        /* добавлен достап к нашему сервису навигации, что бы каждый раз в модели представления его не вызывать */
+        protected INavigationModule Navigator {
+            get {
+                return ServiceLocator.Current.GetInstance<INavigationModule>();
+            }
+        }
+
+        public virtual bool KeepAlive {
+            get {
+                return false; // для всех форм по умолчанию false / но можно переопределить
+            }
+        }
+
+        // При навигации к форме вызывается и в данном методе можно рповерить сможет ли форма обработать данный запрос
+        public abstract bool IsNavigationTarget(NavigationContext navigationContext);
+
+        // Вызывается когда происходит навигация из данной формы в другую форму
+        public abstract void OnNavigatedFrom(NavigationContext navigationContext);
+
+        // Вызывается при навигации на данныю форму
+        public abstract void OnNavigatedTo(NavigationContext navigationContext);
+    }
+}
