@@ -39,11 +39,11 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
            
         }
 
-        private string _Login, _Password, _ErrorMessage;
+        private string _Login, _ErrorMessage;
 
         public string Login { get { return _Login; } set { SetProperty(ref _Login, value); } }
 
-        public string Password { get { return _Password; } set { SetProperty(ref _Password, value); } }
+        
         
         public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
         public ICommand LoginCommand { get; set; }
@@ -66,7 +66,7 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
                 string pass = pwBox.Password;
                 if (pass != "" && pass != null)
                 {
-                    Authentication.Auth_(_Login, pass);//ghbdtn@rfrltkf
+                    Authentication.Auth_(_Login, pass);
                     pass = string.Empty;
                     string serdata = Serialize.SerializeAuth(Authentication.data_auth);
                     string result_send = SendData.Send_Data(serdata);

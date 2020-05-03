@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 namespace ClientSide
 {
-   static class Registration
-    {
-       static public Data_Authentication data_reg = new Data_Authentication();
-        static public void Reg_(string login_,string pass_)
+    static class Registration
+    {//TODO добавить проверку существования логина
+        static public Data_Authentication data_reg = new Data_Authentication();
+        static public void Reg_(string login_, string pass_)
         {
             data_reg.type = "auth";
             data_reg.login = login_;
@@ -18,26 +18,24 @@ namespace ClientSide
             data_reg.operation = "registration";
 
         }
-        static bool Check_Pass(string pass, string pass2)//проверка пароля на требования(хотя бы одна цифра или спец. символ) и повторр пароля
+        static public bool Check_Pass(string pass)//проверка пароля на требования(хотя бы одна цифра или спец. символ)
         {
-            char[] spec_symbol = { '1','2','3','4','5','6','7','8','9','!','&','?' };
+            char[] spec_symbol = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '&', '?' };
             bool result_flag = false;
-            if (pass != pass2)
-                return result_flag;
             if (pass.Length <= 8)
                 return result_flag;
 
-            foreach(var symbol in  spec_symbol)
+            foreach (var symbol in spec_symbol)
                 if (pass.Contains(symbol))
                 {
                     result_flag = true;
                     break;
                 }
-           
+
             return result_flag;
 
         }
-     
+
     }
- 
+
 }

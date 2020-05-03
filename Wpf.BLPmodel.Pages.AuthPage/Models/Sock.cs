@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
-//TODO логин, рег
 namespace ExampleMenu.Model
 {
     static class DataSocket

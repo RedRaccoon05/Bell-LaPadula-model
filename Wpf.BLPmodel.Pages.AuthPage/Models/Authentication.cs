@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-//TODO написать касс отправки и придумать как представлять данные о статьях
 //TODO какие еще могут быть представления данных
 namespace ClientSide
 {

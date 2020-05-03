@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:prism="http://www.codeplex.com/CompositeWPF"
         WindowState="Maximized"
-        Background="#FFB9FFE7"
+        Background="#ADD8E6"
         Title="ShellWindow" Height="300" Width="300">
     <ContentControl prism:RegionManager.RegionName="RegionShell" />
 </Window>

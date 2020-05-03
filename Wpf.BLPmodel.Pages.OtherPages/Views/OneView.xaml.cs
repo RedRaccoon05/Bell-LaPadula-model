@@ -95,6 +95,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         public static readonly DependencyProperty Box1Property = DependencyProperty.Register("Box1", typeof(PasswordBox), typeof(PasswordValidator), new PropertyMetadata(Box1Changed));
         public static readonly DependencyProperty Box2Property = DependencyProperty.Register("Box2", typeof(PasswordBox), typeof(PasswordValidator), new PropertyMetadata(Box2Changed));
         public static readonly DependencyProperty ButtProperty = DependencyProperty.Register("Butt", typeof(Button), typeof(PasswordValidator), new PropertyMetadata(ButtChanged));
+        public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label_Err", typeof(Label), typeof(PasswordValidator), new PropertyMetadata(Label_ErrChanged));
 
         public PasswordBox Box1
         {
@@ -111,12 +112,25 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
             get { return (Button)GetValue(ButtProperty); }
             set { SetValue(ButtProperty, value); }
         }
+        public Label Label_Err
+        {
+            get { return (Label)GetValue(LabelProperty); }
+            set { SetValue(LabelProperty, value); }
+        }
         private static void Box1Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+        }
+        private static void Label_ErrChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
         }
         private static void ButtChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-              var pv = (PasswordValidator)d;
+            CheckValidator(d);
+        }
+
+        private static void CheckValidator(DependencyObject d)
+        {
+            var pv = (PasswordValidator)d;
             _passwordBoxes[pv.Box2] = pv.Box2.BorderBrush;
             pv.Box2.LostFocus += (obj, evt) =>
             {
@@ -124,17 +138,20 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
                 {
                     pv.Box2.BorderBrush = new SolidColorBrush(Colors.Red);
                     pv.Butt.IsEnabled = false;
+                    pv.Label_Err.Content = "Пароль не совпадает";
                 }
                 else
                 {
                     pv.Box2.BorderBrush = _passwordBoxes[pv.Box2];
                     pv.Butt.IsEnabled = true;
+                    pv.Label_Err.Content = "";
                 }
             };
         }
+
         private static void Box2Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-         
+            CheckValidator(d);
         }
     }
 }

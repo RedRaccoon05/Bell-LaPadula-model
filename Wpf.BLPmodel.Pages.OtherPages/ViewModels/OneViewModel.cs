@@ -38,41 +38,22 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             //MessageBo x.Show(String.Format("тестовый параметра:{0}", testParam));
         }
 
-        public class FindCommandParameters
-        {
-            public string Text { get; set; }
-            public bool IgnoreCase { get; set; }
-        }
-        public class MyMultiConverter : IMultiValueConverter
-        {
+ 
 
-            public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-            {
-                FindCommandParameters parameters = new FindCommandParameters();
-                foreach (var obj in values)
-                {
-                    if (obj is string) parameters.Text = (string)obj;
-                    else if (obj is bool) parameters.IgnoreCase = (bool)obj;
-                }
-                return parameters;
-            }
-            public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        private string _Login, _Password, _ConfirmPassword;
+        private string _Login, _ErrorMessage;
 
         public string Login { get { return _Login; } set { SetProperty(ref _Login, value); } }
 
-        public string Password { get { return _Password; } set { SetProperty(ref _Password, value); } }
+        public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
 
-        public string ConfirmPassword { get { return _ConfirmPassword; } set { SetProperty(ref _ConfirmPassword, value); } }
+        //public string Password { get { return _Password; } set { SetProperty(ref _Password, value); } }
+
+        //public string ConfirmPassword { get { return _ConfirmPassword; } set { SetProperty(ref _ConfirmPassword, value); } }
 
         public OneViewModel()
         {
             GoBackCommand = new DelegateCommand(GoBack);
+            GoRegCommand = new DelegateCommand<object>(GoReg);
 
         }
         public ICommand GoBackCommand { get; set; }
@@ -84,39 +65,38 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.AuthView);
         }
 
-        private void GoReg()
+        private void GoReg(object shortPageId)
         {
-
+            ErrorMessage = "";
+            string result_send =   SendtoServerReg(shortPageId);
+            if (result_send == "Ok")
+                GoBack();
+            else ErrorMessage = result_send;
         }
 
 
-        private string SendtoServerReg(object shortPageId, object shortPageId_confirm)
+        private string SendtoServerReg(object shortPageId)
         {
             if (_Login != "" && _Login != null)
             {
                 PasswordBox pwBox = shortPageId as PasswordBox;
                 string pass = pwBox.Password;
 
-                PasswordBox pwBox_confirm = shortPageId_confirm as PasswordBox;
-                string pass_confirm = pwBox_confirm.Password;
-
+              
 
                 if (pass != "" && pass != null)
                 {
-                    if (pass_confirm != "" && pass_confirm != null)
+                    if (Registration.Check_Pass(pass))
                     {
-                        if (pass == pass_confirm)
-                        {
-                            Registration.Reg_(_Login, pass);
-                            pass = string.Empty;
-                            pass_confirm = string.Empty;
-                            string serdata = Serialize.SerializeAuth(Registration.data_reg);
-                            string result_send = SendData.Send_Data(serdata);
-                            return result_send;
-                        }
-                        else return "Пароли не совпадают";
+                        Registration.Reg_(_Login, pass);
+                        pass = string.Empty;
+                        string serdata = Serialize.SerializeAuth(Registration.data_reg);
+                        string result_send = SendData.Send_Data(serdata);
+                        return result_send;
+
                     }
-                    else return "Подтвериде пароль";
+                    else return "Пароль не соответствует требованиям безопасности";
+                 
                 }
                 else return "Введите пароль.";
             }
