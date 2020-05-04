@@ -53,7 +53,7 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
             
             string result_send = SendtoServerAuth(shortPageId);
             if (result_send == "1")
-                Navigator.NavigateTo(PageNames.MenuView);
+                Navigator.NavigateTo(PageNames.ThreeView);
             else ErrorMessage = result_send;
 
         }
