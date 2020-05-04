@@ -102,6 +102,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\Send.cs" />
