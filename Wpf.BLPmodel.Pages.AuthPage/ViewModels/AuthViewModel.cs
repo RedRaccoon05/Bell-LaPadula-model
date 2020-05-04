@@ -52,7 +52,7 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
         {
             
             string result_send = SendtoServerAuth(shortPageId);
-            if (ParseNum(result_send))//написать парс цифры
+            if (ParseNum(result_send))
                 Navigator.NavigateTo(PageNames.ThreeView);
             else ErrorMessage = result_send;
 
