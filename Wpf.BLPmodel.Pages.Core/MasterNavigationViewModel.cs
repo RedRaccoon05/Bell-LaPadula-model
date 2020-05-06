@@ -27,7 +27,8 @@ namespace Wpf.BLPmodel.Pages.Core {
                 return ServiceLocator.Current.GetInstance<INavigationModule>();
             }
         }
-
+      static  protected string Logg;
+        static protected int Logg2;
         public virtual bool KeepAlive {
             get {
                 return false; // для всех форм по умолчанию false / но можно переопределить
@@ -42,5 +43,11 @@ namespace Wpf.BLPmodel.Pages.Core {
 
         // Вызывается при навигации на данныю форму
         public abstract void OnNavigatedTo(NavigationContext navigationContext);
+        public bool ParseNum(string message)
+        {
+            int x = 0;
+            Int32.TryParse(message, out x);
+            return (x != 0) ? true : false;
+        }
     }
 }

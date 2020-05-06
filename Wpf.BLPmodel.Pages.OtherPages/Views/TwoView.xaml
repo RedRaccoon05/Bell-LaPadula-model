@@ -23,12 +23,15 @@
             <Grid Grid.Column="0">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock Text="Введите текущий пароль" FontSize="18" />
-                    <TextBox Width="200" Margin="0,10,0,0" Text="{Binding InputText}" />
+                    <PasswordBox Name="Text_Password" Width="200" Margin="0,10,0,0"  />
                     <TextBlock Text="Введите новый пароль" FontSize="18" Margin="0,10,0,0" />
-                    <TextBox Width="200" Margin="0,10,0,0" Text="{Binding InputText}" />
-                    <Button Content="Подтвердить" Margin="3,10,3,0"/>
+                    <PasswordBox x:Name="Text_New_Password" Width="200" Margin="0,10,0,0" />
+                    <Button CommandParameter="{Binding ElementName=Text_New_Password}"  Command="{Binding ChangePasswordCommand}"  Name ="Butt_Change_Pass"  Content="Подтвердить" Margin="3,10,3,0"/>
+
                 </StackPanel>
+                <local:PasswordValidator Box1="{Binding ElementName=Text_Password}" Box2="{Binding ElementName=Text_New_Password}" Label_Err="{Binding ElementName=Label_Err}" UserName="{Binding ElementName=Labell_UserName}" Butt="{Binding ElementName=Butt_Change_Pass}"  Mode="1"/>
             </Grid>
+            <Label Name="Label_Err" Content="" HorizontalAlignment="Left" Margin="110,350,0,0" VerticalAlignment="Top" Height="24" Width="470" Grid.ColumnSpan="3"/>
 
             <Grid Grid.Column="1">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -41,12 +44,15 @@
             </Grid>
 
             <Grid Grid.Column="2" Margin="40,0,0,0">
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBlock Text="Имя " FontSize="18" />
+                
+
+                    
 
 
-                </StackPanel>
+                
                 <Button Command="{Binding GoBackCommand}" Content="Назад" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="65" Height="34"/>
+                <Label Content="Имя: "  FontSize="18" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                <Label Name="Labell_UserName" Content="{Binding UserName}" FontSize="18" HorizontalAlignment="Left" Margin="74,78,0,0" VerticalAlignment="Top"/>
             </Grid>
 
 
