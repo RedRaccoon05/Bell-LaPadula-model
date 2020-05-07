@@ -95,7 +95,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
             CheckValidator(d);
         }
-       static private bool ParseNum(string message)
+        static private bool ParseNum(string message)
         {
             int x = 0;
             Int32.TryParse(message, out x);
@@ -126,26 +126,33 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
             }
             else if (pv.Mode == 1)
             {
-                pv.Box1.LostFocus += (obj, evt) =>
+                pv.Box2.LostFocus += (obj, evt) =>
                 {
-                    if (pv.Box2.Password == pv.Box1.Password) 
-                        pv.Label_Err.Content = "Новый пароль совпадает со старым";
-                   else if(pv.Box2.Password != pv.Box1.Password)
+                    if (pv.Box1.Password != null && pv.Box1.Password != "")
                     {
-
-                        pv.Label_Err.Content = "";
-                        Authentication.Auth_(pv.UserName.Content.ToString(), pv.Box1.Password);
-                       
-                        string serdata = Serialize.SerializeAuth(Authentication.data_auth);
-                        string result_send = SendData.Send_Data(serdata);
-                        if (ParseNum(result_send))
+                        if (pv.Box2.Password == pv.Box1.Password)
+                            pv.Label_Err.Content = "Новый пароль совпадает со старым";
+                        else if (pv.Box2.Password != pv.Box1.Password)
                         {
-                            pv.Butt.IsEnabled = true;
-                        }
-                        else pv.Butt.IsEnabled = false;
-                    }
-                    
 
+                            pv.Label_Err.Content = "";
+                            Authentication.Auth_(pv.UserName.Content.ToString(), pv.Box1.Password);
+
+                            string serdata = Serialize.SerializeAuth(Authentication.data_auth);
+                            string result_send = SendData.Send_Data(serdata);
+                            if (ParseNum(result_send))
+                            {
+                                pv.Butt.IsEnabled = true;
+                            }
+                            else
+                            {
+                                if (pv.Box2.Password != null && pv.Box2.Password != "")
+                                    pv.Butt.IsEnabled = false;
+                            }
+                        }
+
+                    }
+                    else pv.Butt.IsEnabled = false;
                 };
             }
         }
@@ -154,6 +161,6 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
             CheckValidator(d);
         }
-       
+
     }
 }

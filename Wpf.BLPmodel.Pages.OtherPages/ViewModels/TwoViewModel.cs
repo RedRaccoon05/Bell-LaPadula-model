@@ -31,24 +31,30 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
         }
         public ICommand ChangePasswordCommand { get; set; }
 
-        private void ChangePassword_(object ob)
+        private void ChangePassword_(object obj)
         {
-            PasswordBox b = ob as PasswordBox;
-
-            if (Registration.Check_Pass(b.Password))
+            PasswordBox newpass = obj as PasswordBox;
+            if (newpass.Password != null && newpass.Password != "")
             {
+                if (Registration.Check_Pass(newpass.Password))
+                {
 
-                ChangePassword.ShangePass_(UserNameNavigator, b.Password);
-                string serdata = Serialize.SerializeAuth(ChangePassword.data_change_pass);
-                string result_send = SendData.Send_Data(serdata);
-                if(result_send == "Ok")
-                    MessageBox.Show(String.Format("Пароль изменен"));
+                    ChangePassword.ShangePass_(UserNameNavigator, newpass.Password);
+                    string serdata = Serialize.SerializeAuth(ChangePassword.data_change_pass);
+                    string result_send = SendData.Send_Data(serdata);
+                    if (result_send == "Ok")
+                        MessageBox.Show(String.Format("Пароль изменен"));
 
+                }
+                else
+                {
+
+                    MessageBox.Show(String.Format("Новый пароль не соответствует требованию безопасности"));
+                }
             }
             else
             {
-              
-                MessageBox.Show(String.Format("Новый пароль не соответствует требованию безопасности"));
+                MessageBox.Show(String.Format("Введите новый пароль"));
             }
 
         }
