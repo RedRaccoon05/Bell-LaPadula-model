@@ -12,10 +12,13 @@ using Wpf.BLPmodel.Pages.Core.Extentions;
 using System.Windows.Controls;
 using ClientSide;
 using Wpf.BLPmodel.Pages.AuthPage.Views;
-namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
-    public class AuthViewModel : MasterNavigationViewModel {
+namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels
+{
+    public class AuthViewModel : MasterNavigationViewModel
+    {
 
-        public AuthViewModel() {
+        public AuthViewModel()
+        {
             // инициализация команды средствами Prism.Command
             LoginCommand = new DelegateCommand<object>(Autorize);
             RegCommand = new DelegateCommand(Reg);
@@ -27,43 +30,47 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
                 return true; // страница с меню будет жить в памяти даже когда мы её покинем
             }
         }
-        public override bool IsNavigationTarget(NavigationContext navigationContext) {
+        public override bool IsNavigationTarget(NavigationContext navigationContext)
+        {
             return true;
         }
 
-        public override void OnNavigatedFrom(NavigationContext navigationContext) {
-            
+        public override void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+
         }
 
-        public override void OnNavigatedTo(NavigationContext navigationContext) {
-           
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+
         }
 
         private string _Login, _ErrorMessage;
 
         public string Login { get { return _Login; } set { SetProperty(ref _Login, value); } }
 
-        
-        
+
+
         public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
         public ICommand LoginCommand { get; set; }
-        public ICommand RegCommand { get;set; }
+        public ICommand RegCommand { get; set; }
         private void Autorize(object shortPageId)
         {
-            
+
             string result_send = SendtoServerAuth(shortPageId);
             if (ParseNum(result_send))
             {
+                SecFlagNavigator = Int32.Parse(result_send);
                 Navigator.NavigateTo(PageNames.ThreeView);
-             
+
             }
             else ErrorMessage = result_send;
 
         }
-      
+
         private string SendtoServerAuth(object shortPageId)
         {
-            if (_Login != "" && _Login !=null)
+            if (_Login != "" && _Login != null)
             {
                 PasswordBox pwBox = shortPageId as PasswordBox;
                 string pass = pwBox.Password;
@@ -73,13 +80,13 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels {
                     pass = string.Empty;
                     string serdata = Serialize.SerializeAuth(Authentication.data_auth);
                     string result_send = SendData.Send_Data(serdata);
-                    Logg = _Login;
+                    UserNameNavigator = _Login;
                     return result_send;
                 }
                 else return "Введите пароль.";
             }
             else return "Введите логин.";
-           
+
         }
 
         private void Reg()

@@ -29,10 +29,15 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext) {
-            
+            GetSecFlag();
         }
         public ICommand GoSettingsCommand { get; set; }
-
+        private int _SecFlag;
+        public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
+        void GetSecFlag()
+        {
+            _SecFlag = SecFlagNavigator;
+        }
         private void GoSettings()
         {
             Navigator.NavigateTo(PageNames.TwoView);

@@ -27,6 +27,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
 
         public override void OnNavigatedTo(NavigationContext navigationContext) {
             GetUserName();
+            GetSecFlag();
         }
         public ICommand ChangePasswordCommand { get; set; }
 
@@ -37,7 +38,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
             if (Registration.Check_Pass(b.Password))
             {
 
-                ChangePassword.ShangePass_(Logg, b.Password);
+                ChangePassword.ShangePass_(UserNameNavigator, b.Password);
                 string serdata = Serialize.SerializeAuth(ChangePassword.data_change_pass);
                 string result_send = SendData.Send_Data(serdata);
                 if(result_send == "Ok")
@@ -52,10 +53,17 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
 
         }
         private string _UserName;
+        private int _SecFlag;
         public string UserName { get { return _UserName; } set { SetProperty(ref _UserName, value); } }
+        public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
         void GetUserName()
         {
-            _UserName = Logg;
+            _UserName = UserNameNavigator;
         }
+        void GetSecFlag()
+        {
+            _SecFlag = SecFlagNavigator;
+        }
+
     }
 }

@@ -63,8 +63,8 @@
                     <RowDefinition Height="45"/>
                 </Grid.RowDefinitions>
                 <Button Command="{Binding GoSettingsCommand}" Background="White" FontSize="20" Content="𝑷𝒓𝒐𝒇𝒊𝒍𝒆" Margin="0,2,0,0" />
-                <TextBlock FontSize="17" Grid.Row="1" Margin="0,10,0,0" ><Run Text="Уровень доступа 1"/></TextBlock>
-
+                <TextBlock FontSize="16" Grid.Row="1" Margin="-2,9.667,14.333,-0.667" ><Run Text="Уровень доступа:  "/></TextBlock>
+                <TextBlock FontSize="16" Grid.Row="1" Margin="129,9.667,-1.667,11.333" ><Run Text="{Binding SecFlag}"/></TextBlock>
 
             </Grid>
 
