@@ -121,6 +121,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\BaseNumericViewModel.cs" />
+    <Compile Include="ViewModels\FourViewModel.cs" />
     <Compile Include="ViewModels\OneViewModel.cs" />
     <Compile Include="ViewModels\ThreeViewModel.cs" />
     <Compile Include="ViewModels\TwoViewModel.cs" />

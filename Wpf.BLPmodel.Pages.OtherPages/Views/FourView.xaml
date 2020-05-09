@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="435" d:DesignWidth="630">
     <Grid>
-            
+        <Label Name="testL" Content="{Binding testLabel}" FontSize="18" HorizontalAlignment="Left" Margin="92,70,0,0" VerticalAlignment="Top"/>
+        <Button Content="Start" Command="{Binding testCommand}" HorizontalAlignment="Left" Margin="72,109,0,0" VerticalAlignment="Top" Width="98" Height="40"/>
+
     </Grid>
 </UserControl>

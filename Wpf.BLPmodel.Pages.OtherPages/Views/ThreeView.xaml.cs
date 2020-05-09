@@ -22,7 +22,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views {
         public ThreeView() {
             InitializeComponent();
          //   DataContext = new TwoViewModel();
-            sd.DataContext = new TwoViewModel();
+            sd.DataContext = new FourViewModel();
         }
     }
 }

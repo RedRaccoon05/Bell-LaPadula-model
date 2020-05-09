@@ -9,8 +9,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:TwoViewModel}">
-            <view:TwoView DataContext="{Binding}"/>
+        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:FourViewModel}">
+            <view:FourView DataContext="{Binding}"/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
