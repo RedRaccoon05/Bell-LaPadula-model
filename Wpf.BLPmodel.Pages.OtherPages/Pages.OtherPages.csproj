@@ -124,6 +124,9 @@
     <Compile Include="ViewModels\OneViewModel.cs" />
     <Compile Include="ViewModels\ThreeViewModel.cs" />
     <Compile Include="ViewModels\TwoViewModel.cs" />
+    <Compile Include="Views\FourView.xaml.cs">
+      <DependentUpon>FourView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OneView.xaml.cs">
       <DependentUpon>OneView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\FourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
