@@ -7,10 +7,11 @@
              xmlns:viewmodels ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.ViewModels"
              xmlns:view ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              mc:Ignorable="d" 
+
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:FourViewModel}">
-            <view:FourView DataContext="{Binding}"/>
+        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:NotesGridViewModel}">
+            <view:NotesGridView DataContext="{Binding}"/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>

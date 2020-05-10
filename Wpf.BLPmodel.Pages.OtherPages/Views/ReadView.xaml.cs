@@ -12,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
 
-namespace Wpf.BLPmodel.Pages.OtherPages.Views {
+namespace Wpf.BLPmodel.Pages.OtherPages.Views
+{
     /// <summary>
-    /// Логика взаимодействия для ThreeView.xaml
+    /// Interaction logic for Read.xaml
     /// </summary>
-    public partial class ThreeView : UserControl {
-        public ThreeView() {
+    public partial class ReadView : UserControl
+    {
+        public ReadView()
+        {
             InitializeComponent();
-            //   DataContext = new TwoViewModel();
-            sd.DataContext = new NotesGridViewModel();
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Wpf.BLPmodel.Pages.OtherPages.Views.ReadView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="435" d:DesignWidth="630">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="45"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="1">
+                <Image Source="Resources/edit.png" Height="35" />
+            </Button>
+            <TextBlock FontSize="25"  Grid.Column="0" Margin="0,6,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="528"><Run Text="А. С. Пушкин"/></TextBlock>
+
+        </Grid>
+
+
+
+        <Grid  Grid.Row="1">
+            <ScrollViewer  Margin="0,2,0,0" >
+                <TextBlock TextWrapping="Wrap" Margin="0,2,0,0"  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+    <Run FontSize="20" Foreground="Red" FontWeight="Bold">О</Run>
+    <Run FontSize="16" Foreground="LightSeaGreen">негин был, по мненью многих был, по мненью многих Онегин был, по мненью многих...</Run>
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</UserControl>

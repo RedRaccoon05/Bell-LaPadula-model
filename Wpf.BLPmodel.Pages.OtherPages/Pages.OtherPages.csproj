@@ -122,11 +122,15 @@
     </Compile>
     <Compile Include="ViewModels\BaseNumericViewModel.cs" />
     <Compile Include="ViewModels\FourViewModel.cs" />
+    <Compile Include="ViewModels\NotesGridViewModel.cs" />
     <Compile Include="ViewModels\OneViewModel.cs" />
     <Compile Include="ViewModels\ThreeViewModel.cs" />
     <Compile Include="ViewModels\TwoViewModel.cs" />
     <Compile Include="Views\FourView.xaml.cs">
       <DependentUpon>FourView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotesGridView.xaml.cs">
+      <DependentUpon>NotesGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OneView.xaml.cs">
       <DependentUpon>OneView.xaml</DependentUpon>
@@ -150,6 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\FourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotesGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
