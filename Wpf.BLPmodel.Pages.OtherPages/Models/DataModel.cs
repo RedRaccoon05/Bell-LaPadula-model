@@ -16,7 +16,7 @@ namespace ClientSide
     {
         public string login;
         public byte[] password;
-        public string operation;//авторизация или регистрация
+        public string operation;//авторизация, регистрация, смена пароля
     }
     [Serializable]
     class Data_Note: Data_Model

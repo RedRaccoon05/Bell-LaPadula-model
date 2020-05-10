@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
+using ClientSide;
 using Wpf.BLPmodel.Pages.Core;
-
+using System.Windows;
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
     public class TwoViewModel : BaseNumericViewModel {
 
-        public TwoViewModel() :base(){ }
+        public TwoViewModel() {
+            ChangePasswordCommand = new DelegateCommand<object>(ChangePassword_);
+        }
 
         public override bool IsNavigationTarget(NavigationContext navigationContext) {
             return true;
@@ -20,7 +26,50 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
         }
 
         public override void OnNavigatedTo(NavigationContext navigationContext) {
-           
+            GetUserName();
+            GetSecFlag();
         }
+        public ICommand ChangePasswordCommand { get; set; }
+
+        private void ChangePassword_(object obj)
+        {
+            PasswordBox newpass = obj as PasswordBox;
+            if (newpass.Password != null && newpass.Password != "")
+            {
+                if (Registration.Check_Pass(newpass.Password))
+                {
+
+                    ChangePassword.ShangePass_(UserNameNavigator, newpass.Password);
+                    string serdata = Serialize.SerializeAuth(ChangePassword.data_change_pass);
+                    string result_send = SendData.Send_Data(serdata);
+                    if (result_send == "Ok")
+                        MessageBox.Show(String.Format("Пароль изменен"));
+
+                }
+                else
+                {
+
+                    MessageBox.Show(String.Format("Новый пароль не соответствует требованию безопасности"));
+                }
+            }
+            else
+            {
+                MessageBox.Show(String.Format("Введите новый пароль"));
+            }
+
+        }
+        private string _UserName;
+        private int _SecFlag;
+        public string UserName { get { return _UserName; } set { SetProperty(ref _UserName, value); } }
+        public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
+        void GetUserName()
+        {
+            _UserName = UserNameNavigator;
+        }
+        void GetSecFlag()
+        {
+            _SecFlag = SecFlagNavigator;
+        }
+
     }
 }

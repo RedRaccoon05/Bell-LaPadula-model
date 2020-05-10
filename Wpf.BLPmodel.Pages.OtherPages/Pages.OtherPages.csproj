@@ -102,6 +102,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Authentication.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\Send.cs" />
@@ -119,9 +121,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\BaseNumericViewModel.cs" />
+    <Compile Include="ViewModels\FourViewModel.cs" />
     <Compile Include="ViewModels\OneViewModel.cs" />
     <Compile Include="ViewModels\ThreeViewModel.cs" />
     <Compile Include="ViewModels\TwoViewModel.cs" />
+    <Compile Include="Views\FourView.xaml.cs">
+      <DependentUpon>FourView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OneView.xaml.cs">
       <DependentUpon>OneView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +149,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\FourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,6 +179,10 @@
       <Project>{494AC326-F33B-40DC-9D80-77F2B8E3530E}</Project>
       <Name>Pages.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\back.png" />
+    <Resource Include="Resources\r.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

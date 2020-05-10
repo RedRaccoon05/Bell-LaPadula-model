@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 namespace ClientSide
 {
     static class Registration
-    {//TODO добавить проверку существования логина
+    {
         static public Data_Authentication data_reg = new Data_Authentication();
         static public void Reg_(string login_, string pass_)
         {

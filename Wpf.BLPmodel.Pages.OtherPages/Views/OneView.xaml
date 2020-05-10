@@ -28,7 +28,7 @@
 
 
         </Button>
-        <local:PasswordValidator  Box1="{Binding ElementName=Text_Pass}" Box2="{Binding ElementName=Text_PassConf}" Butt="{Binding ElementName=But_Conf}" Label_Err="{Binding ElementName=Label_Err}" />
+        <local:PasswordValidator Mode="0"  Box1="{Binding ElementName=Text_Pass}" Box2="{Binding ElementName=Text_PassConf}" Butt="{Binding ElementName=But_Conf}" Label_Err="{Binding ElementName=Label_Err}"  />
         <Button Command="{Binding GoBackCommand}" x:Name="But_Auth" Content="Авторизация" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="175" />
 
     </Grid>

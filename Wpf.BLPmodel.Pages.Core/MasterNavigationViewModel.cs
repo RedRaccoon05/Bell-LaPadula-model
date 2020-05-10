@@ -16,20 +16,27 @@ using Microsoft.Practices.ServiceLocation;
  KeepAlive = false , форма будет удалена из региона при переходе на другую форму. 
 */
 
-namespace Wpf.BLPmodel.Pages.Core {
+namespace Wpf.BLPmodel.Pages.Core
+{
 
     /*Класс объявлен абстрактным, нельзя стоздать его экземпляр только наследоваться или привести к нему */
-    public abstract class MasterNavigationViewModel : BindableBase, INavigationAware, IRegionMemberLifetime {
-        
+    public abstract class MasterNavigationViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
+    {
+
         /* добавлен достап к нашему сервису навигации, что бы каждый раз в модели представления его не вызывать */
-        protected INavigationModule Navigator {
-            get {
+        protected INavigationModule Navigator
+        {
+            get
+            {
                 return ServiceLocator.Current.GetInstance<INavigationModule>();
             }
         }
-
-        public virtual bool KeepAlive {
-            get {
+        static protected string UserNameNavigator;
+        static protected int SecFlagNavigator;
+        public virtual bool KeepAlive
+        {
+            get
+            {
                 return false; // для всех форм по умолчанию false / но можно переопределить
             }
         }
@@ -42,5 +49,11 @@ namespace Wpf.BLPmodel.Pages.Core {
 
         // Вызывается при навигации на данныю форму
         public abstract void OnNavigatedTo(NavigationContext navigationContext);
+        public bool ParseNum(string message)
+        {
+            int x = 0;
+            Int32.TryParse(message, out x);
+            return (x != 0) ? true : false;
+        }
     }
 }

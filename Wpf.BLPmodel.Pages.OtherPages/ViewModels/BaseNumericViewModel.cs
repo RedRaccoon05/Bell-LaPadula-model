@@ -18,7 +18,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
         public ICommand GoBackCommand { get; set; }
 
         private void GoBack() {
-            Navigator.NavigateTo(PageNames.MenuView);
+            Navigator.NavigateTo(PageNames.ThreeView);
         }
     }
 }
