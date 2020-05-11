@@ -24,7 +24,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         public NotesGridView()
         {
             InitializeComponent();
-          
+
         }
         //private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         //{
