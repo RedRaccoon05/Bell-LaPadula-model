@@ -15,11 +15,16 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
 
     public class ThreeViewModel : MasterNavigationViewModel
     {
-
+        public ICommand _MouseDoubleClickCommand { get; set; }
         public ThreeViewModel(){
             GoSettingsCommand = new DelegateCommand(GoSettings);
+            _MouseDoubleClickCommand = new DelegateCommand(test);
         }
-
+        void test()
+        {
+            int e;
+            e = 4;
+        }
         public override bool IsNavigationTarget(NavigationContext navigationContext) {
             return true;
         }

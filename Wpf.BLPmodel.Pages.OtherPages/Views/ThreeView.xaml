@@ -80,10 +80,10 @@
 
         </Grid>
 
-        <Grid></Grid>
 
+
+        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Height="435" Width="630" />
 
         <Frame Grid.Column="0"/>
-        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="435" Width="630"/>
     </Grid>
 </UserControl>
