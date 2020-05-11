@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.Views
 {
@@ -24,6 +25,14 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
             InitializeComponent();
         }
+        //private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    DataGridRow row = sender as DataGridRow;
+        //    var ehhh = row.Item.ToString();
+        //    DataContext = new FourViewModel();
+            
+        //    MessageBox.Show("NICE");
+        //}
     }
 }
 

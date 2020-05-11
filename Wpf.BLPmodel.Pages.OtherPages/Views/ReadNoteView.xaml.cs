@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Wpf.BLPmodel.Pages.OtherPages.Views
 {
     /// <summary>
-    /// Interaction logic for Read.xaml
+    /// Interaction logic for ReadNoteView.xaml
     /// </summary>
-    public partial class ReadView : UserControl
+    public partial class ReadNoteView : UserControl
     {
-        public ReadView()
+        public ReadNoteView()
         {
             InitializeComponent();
         }

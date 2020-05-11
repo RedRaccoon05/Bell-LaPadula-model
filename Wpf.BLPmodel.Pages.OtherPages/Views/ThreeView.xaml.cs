@@ -24,5 +24,10 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views {
             //   DataContext = new TwoViewModel();
             sd.DataContext = new NotesGridViewModel();
         }
+        public void ReadNote()
+        {
+            sd.DataContext = new ReadNoteViewModel();
+        }
     }
+
 }

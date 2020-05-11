@@ -10,6 +10,7 @@ using Microsoft.Practices.Prism.Regions;
 using ClientSide;
 using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
+using Wpf.BLPmodel.Pages.Core.Extentions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
@@ -31,14 +32,22 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
     {
         public NotesGridViewModel()
         {
+            MouseDoubleClickCommand = new DelegateCommand<object>(TT);
             GetNotestoServ();
             notesViewer = new NotesViewer(notes);
             DataGridSource = notesViewer._notesViewer;
+            Navigator.NavigateTo(PageNames.OneView);
+        }
+        void TT(object ob)
+        {
+            int r;
+            r = 4;
+            MessageBox.Show("NICE");
            
         }
         void GetNotestoServ()
         {
-            notes = Serialize.DeserializeNote(SendData.Send_Data("GetNotes"+SecFlagNavigator.ToString()));
+            notes = Serialize.DeserializeNote(SendData.Send_Data("GetNotes" + SecFlagNavigator.ToString()));
 
         }
         public override bool IsNavigationTarget(NavigationContext navigationContext)
@@ -51,6 +60,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         }
 
+        public ICommand MouseDoubleClickCommand { get; set; }
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
 

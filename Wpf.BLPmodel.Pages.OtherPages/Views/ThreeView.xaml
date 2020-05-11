@@ -10,8 +10,11 @@
 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:NotesGridViewModel}">
+        <DataTemplate x:Name="NotesGridViewTemplate"  DataType="{x:Type viewmodels:NotesGridViewModel}">
             <view:NotesGridView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="ReadNoteTempate" DataType="{x:Type viewmodels:ReadNoteViewModel}">
+            <view:ReadNoteView DataContext="{Binding}"/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
