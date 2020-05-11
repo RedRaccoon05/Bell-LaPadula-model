@@ -31,6 +31,7 @@ namespace Wpf.BLPmodel.Pages.Core
                 return ServiceLocator.Current.GetInstance<INavigationModule>();
             }
         }
+     //   static protected  checkpage = 0;
         static protected string UserNameNavigator;
         static protected int SecFlagNavigator;
         public virtual bool KeepAlive
