@@ -7,10 +7,14 @@
              xmlns:viewmodels ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.ViewModels"
              xmlns:view ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              mc:Ignorable="d" 
+
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <DataTemplate x:Name="rr" DataType="{x:Type viewmodels:FourViewModel}">
-            <view:FourView DataContext="{Binding}"/>
+        <DataTemplate x:Name="NotesGridViewTemplate"  DataType="{x:Type viewmodels:NotesGridViewModel}">
+            <view:NotesGridView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="ReadNoteTempate" DataType="{x:Type viewmodels:ReadNoteViewModel}">
+            <view:ReadNoteView DataContext="{Binding}"/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -76,10 +80,10 @@
 
         </Grid>
 
-        <Grid></Grid>
 
+
+        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Height="435" Width="630" />
 
         <Frame Grid.Column="0"/>
-        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="435" Width="630"/>
     </Grid>
 </UserControl>

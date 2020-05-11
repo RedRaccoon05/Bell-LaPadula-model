@@ -13,16 +13,35 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
-
-namespace Wpf.BLPmodel.Pages.OtherPages.Views {
+using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.Regions;
+using Wpf.BLPmodel.Modules;
+using Microsoft.Practices.Prism.Modularity;
+using System.ComponentModel;
+namespace Wpf.BLPmodel.Pages.OtherPages.Views
+{
     /// <summary>
     /// Логика взаимодействия для ThreeView.xaml
     /// </summary>
-    public partial class ThreeView : UserControl {
-        public ThreeView() {
+    public partial class ThreeView : UserControl
+    {
+        static int de=0;
+        public ThreeView()
+        {
+          
             InitializeComponent();
-         //   DataContext = new TwoViewModel();
-            sd.DataContext = new FourViewModel();
+            //   DataContext = new TwoViewModel();
+            if (de == 0)
+            {
+                sd.DataContext = new NotesGridViewModel();
+                de++;
+            }
+            else sd.DataContext = new ReadNoteViewModel();
+        }
+        public void ReadNote()
+        {
+            sd.DataContext = new ReadNoteViewModel();
         }
     }
+
 }
