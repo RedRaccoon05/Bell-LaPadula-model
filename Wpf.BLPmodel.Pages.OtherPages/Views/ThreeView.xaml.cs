@@ -39,7 +39,12 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
                 sd.DataContext = new NotesGridViewModel();
                 de++;
             }
-            else sd.DataContext = new ReadNoteViewModel();
+            else
+            {
+                de--;
+                sd.DataContext = new ReadNoteViewModel();
+
+            }
   
         }
         public void ReadNote()

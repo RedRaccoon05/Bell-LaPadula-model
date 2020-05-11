@@ -45,7 +45,7 @@
                     <ColumnDefinition Width="30*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Margin="0,0,2,0" Background="White">
+                <Button Grid.Column="0" Margin="0,0,2,0" Background="White" Command="{Binding GoBackNotesCommand}" >
                     <Image Source="/Resources/back.png"/>
                 </Button>
 
@@ -85,6 +85,5 @@
         <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Height="435" Width="630" />
 
         <Frame Grid.Column="0"/>
-        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="435" Width="630"/>
     </Grid>
 </UserControl>
