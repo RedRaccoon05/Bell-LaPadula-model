@@ -42,8 +42,11 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
             int r;
             r = 4;
-            MessageBox.Show("NICE");
-           
+         //   MessageBox.Show("NICE");
+            NoteViewer row = ob as NoteViewer;
+              
+            Navigator.NavigateTo(PageNames.MenuView);
+            
         }
         void GetNotestoServ()
         {

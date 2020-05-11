@@ -14,12 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
 
-namespace Wpf.BLPmodel.Pages.OtherPages.Views {
+namespace Wpf.BLPmodel.Pages.OtherPages.Views
+{
     /// <summary>
     /// Логика взаимодействия для ThreeView.xaml
     /// </summary>
-    public partial class ThreeView : UserControl {
-        public ThreeView() {
+    public partial class ThreeView : UserControl
+    {
+        public ThreeView()
+        {
             InitializeComponent();
             //   DataContext = new TwoViewModel();
             sd.DataContext = new NotesGridViewModel();

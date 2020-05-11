@@ -7,7 +7,9 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid  Margin="0,5,3,5">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition/>
@@ -18,18 +20,17 @@
 
 
         <Grid  Grid.Row="1">
+
             <DataGrid  x:Name="ra" Margin="0,2,0,0" IsReadOnly="True" ItemsSource="{Binding DataGridSource}" IsSynchronizedWithCurrentItem="True" >
-                <!--<DataGrid.Resources>
-                    <Style TargetType="DataGridRow">
-                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
-                    </Style>
-                </DataGrid.Resources>-->
+          
                 <DataGrid.InputBindings>
                     <MouseBinding MouseAction="LeftDoubleClick"
                                  Command="{Binding MouseDoubleClickCommand}"
                   CommandParameter="{Binding DataGridSource/}" />
                 </DataGrid.InputBindings>
+
             </DataGrid>
+            
         </Grid>
 
 

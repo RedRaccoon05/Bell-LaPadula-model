@@ -24,6 +24,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         public NotesGridView()
         {
             InitializeComponent();
+            conkost.DataContext = new FourViewModel();
         }
         //private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         //{
