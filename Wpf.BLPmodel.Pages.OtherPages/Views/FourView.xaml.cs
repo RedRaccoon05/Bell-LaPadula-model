@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ThreeView.xaml
+    /// Interaction logic for FourView.xaml
     /// </summary>
-    public partial class ThreeView : UserControl
+    public partial class FourView : UserControl
     {
-        public ThreeView()
+        public FourView()
         {
             InitializeComponent();
-            //   DataContext = new TwoViewModel();
-            sd.DataContext = new NotesGridViewModel();
-        }
-        public void ReadNote()
-        {
-            sd.DataContext = new ReadNoteViewModel();
         }
     }
-
 }

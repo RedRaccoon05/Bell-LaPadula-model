@@ -8,6 +8,9 @@
         xmlns:prism="http://www.codeplex.com/CompositeWPF"
         WindowState="Maximized"
         Background="#ADD8E6"
+                     MinWidth="600"
+MinHeight="350"
         Title="ShellWindow" Height="300" Width="300">
+    
     <ContentControl prism:RegionManager.RegionName="RegionShell" />
 </Window>

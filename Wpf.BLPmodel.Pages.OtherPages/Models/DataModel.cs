@@ -31,7 +31,7 @@ namespace ClientSide
     [Serializable]
     class Notes_
     {
-        public List<Data_Note> notes_;
+        public List<Data_Note> notes_ = new List<Data_Note>();
     }
     static class Serialize
     {

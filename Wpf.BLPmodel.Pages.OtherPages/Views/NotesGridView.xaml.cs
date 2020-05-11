@@ -17,20 +17,24 @@ using Wpf.BLPmodel.Pages.OtherPages.ViewModels;
 namespace Wpf.BLPmodel.Pages.OtherPages.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ThreeView.xaml
+    /// Interaction logic for NotesGridView.xaml
     /// </summary>
-    public partial class ThreeView : UserControl
+    public partial class NotesGridView : UserControl
     {
-        public ThreeView()
+        public NotesGridView()
         {
             InitializeComponent();
-            //   DataContext = new TwoViewModel();
-            sd.DataContext = new NotesGridViewModel();
+            conkost.DataContext = new FourViewModel();
         }
-        public void ReadNote()
-        {
-            sd.DataContext = new ReadNoteViewModel();
-        }
+        //private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    DataGridRow row = sender as DataGridRow;
+        //    var ehhh = row.Item.ToString();
+        //    DataContext = new FourViewModel();
+            
+        //    MessageBox.Show("NICE");
+        //}
     }
-
 }
+
+
