@@ -42,7 +42,16 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
 
             Back_to_Grid_Flag++;
-            NoteViewer row = ob as NoteViewer;
+            NoteViewer r = ob as NoteViewer;
+            NoteToRead.name = r.name;
+            foreach (var note in notes.notes_)
+            {
+                if(note.name == r.name)
+                {
+                    NoteToRead.data = note.data;
+                    break;
+                }
+            }
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
 

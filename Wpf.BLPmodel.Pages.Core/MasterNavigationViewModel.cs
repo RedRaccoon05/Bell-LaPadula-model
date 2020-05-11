@@ -4,7 +4,9 @@ using Microsoft.Practices.Prism.Regions;
 using Wpf.BLPmodel.Modules;
 using Microsoft.Practices.Prism.Modularity;
 using System.ComponentModel;
+
 using Microsoft.Practices.ServiceLocation;
+using ClientSide;
 
 /*
  Наша базовая модель представления
@@ -18,6 +20,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Wpf.BLPmodel.Pages.Core
 {
+   
 
     /*Класс объявлен абстрактным, нельзя стоздать его экземпляр только наследоваться или привести к нему */
     public abstract class MasterNavigationViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
@@ -31,7 +34,9 @@ namespace Wpf.BLPmodel.Pages.Core
                 return ServiceLocator.Current.GetInstance<INavigationModule>();
             }
         }
-           static protected int Back_to_Grid_Flag = 0;
+        static public Data_Note NoteToRead = new Data_Note() ;
+         
+        static protected int Back_to_Grid_Flag = 0;
         static protected string UserNameNavigator;
         static protected int SecFlagNavigator;
         public virtual bool KeepAlive
