@@ -6,9 +6,11 @@
              xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              mc:Ignorable="d" 
-             d:DesignHeight="2554" d:DesignWidth="1440">
-    
-    <Grid  Margin="0,5,3,5">
+             MaxWidth="2560"
+             MaxHeight="1440"
+             d:DesignHeight="600" d:DesignWidth="600">
+            
+    <Grid  >
         
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
@@ -21,7 +23,7 @@
 
         <Grid  Grid.Row="1">
 
-            <DataGrid  x:Name="ra" Margin="0,2,0,0" IsReadOnly="True" ItemsSource="{Binding DataGridSource}" IsSynchronizedWithCurrentItem="True" >
+            <DataGrid  x:Name="ra" Margin="0,2,0,0" IsReadOnly="True" ItemsSource="{Binding DataGridSource}" IsSynchronizedWithCurrentItem="True" Background="White">
           
                 <DataGrid.InputBindings>
                     <MouseBinding MouseAction="LeftDoubleClick"
