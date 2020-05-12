@@ -13,12 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wpf.BLPmodel.Pages.OtherPages.Views {
+namespace Wpf.BLPmodel.Pages.OtherPages.Views
+{
     /// <summary>
-    /// Логика взаимодействия для Write.xaml
+    /// Interaction logic for WriteNoteView.xaml
     /// </summary>
-    public partial class Write : Page {
-        public Write() {
+    public partial class WriteNoteView : UserControl
+    {
+        public WriteNoteView()
+        {
             InitializeComponent();
         }
     }

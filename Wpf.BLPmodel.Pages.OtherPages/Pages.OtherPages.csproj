@@ -147,8 +147,8 @@
     <Compile Include="Views\TwoView.xaml.cs">
       <DependentUpon>TwoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Write.xaml.cs">
-      <DependentUpon>Write.xaml</DependentUpon>
+    <Compile Include="Views\WriteNoteView.xaml.cs">
+      <DependentUpon>WriteNoteView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,9 +186,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Write.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\WriteNoteView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
