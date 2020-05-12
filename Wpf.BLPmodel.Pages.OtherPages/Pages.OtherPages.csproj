@@ -147,6 +147,9 @@
     <Compile Include="Views\TwoView.xaml.cs">
       <DependentUpon>TwoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Write.xaml.cs">
+      <DependentUpon>Write.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -183,6 +186,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Write.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wpf.BLPmodel.Modules\Modules.csproj">
@@ -201,6 +208,15 @@
   <ItemGroup>
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
