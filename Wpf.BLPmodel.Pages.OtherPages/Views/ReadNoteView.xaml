@@ -20,7 +20,7 @@
             <Button  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="1">
                 <Image Source="Resources/edit.png" Height="35" />
             </Button>
-            <TextBlock FontSize="25"  Grid.Column="0" Margin="0,6,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="528"><Run Text="{Binding NoteTitle}"/></TextBlock>
+            <TextBlock FontSize="25"  Grid.Column="0" Margin="0,6,0,5.333" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="755" Grid.ColumnSpan="2"><Run Text="{Binding NoteTitle}"/></TextBlock>
 
         </Grid>
 
