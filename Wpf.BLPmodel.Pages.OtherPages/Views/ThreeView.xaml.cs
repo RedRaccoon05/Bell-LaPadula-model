@@ -51,6 +51,10 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
             sd.DataContext = new ReadNoteViewModel();
         }
+
+        private void sd_Navigated(object sender, NavigationEventArgs e) {
+
+        }
     }
 
 }

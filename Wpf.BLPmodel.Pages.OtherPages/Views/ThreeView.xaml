@@ -7,7 +7,8 @@
              xmlns:viewmodels ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.ViewModels"
              xmlns:view ="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              mc:Ignorable="d" 
-
+             MinWidth="600"
+             MinHeight="350"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <DataTemplate x:Name="NotesGridViewTemplate"  DataType="{x:Type viewmodels:NotesGridViewModel}">
@@ -24,10 +25,6 @@
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
 
-        <Grid >
-
-            <DataGrid Margin="5" />
-        </Grid>
 
         <Grid Grid.Column="1" Margin="0,5,3,5">
 
@@ -82,8 +79,8 @@
 
 
 
-        <ContentControl x:Name="sd" Content="{Binding}" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Height="435" Width="630" />
 
-        <Frame Grid.Column="0"/>
+
+        <Frame Grid.Column="0" x:Name="sd" Content="{Binding}" Background="White" Margin="5,5,2,5"/>
     </Grid>
 </UserControl>
