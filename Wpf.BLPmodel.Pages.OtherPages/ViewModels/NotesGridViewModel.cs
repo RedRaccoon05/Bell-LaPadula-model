@@ -32,18 +32,29 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
     {
         public NotesGridViewModel()
         {
-            MouseDoubleClickCommand = new DelegateCommand<object>(TT);
+            MouseDoubleClickCommand = new DelegateCommand<object>(NoteReader);
             GetNotestoServ();
             notesViewer = new NotesViewer(notes);
             DataGridSource = notesViewer._notesViewer;
             Navigator.NavigateTo(PageNames.OneView);
         }
-        void TT(object ob)
+        void NoteReader(object ob)
         {
-       
-            NoteViewer row = ob as NoteViewer;
+
+            Back_to_Grid_Flag++;
+            NoteViewer r = ob as NoteViewer;
+            NoteToRead.name = r.name;
+            foreach (var note in notes.notes_)
+            {
+                if(note.name == r.name)
+                {
+                    NoteToRead.data = note.data;
+                    break;
+                }
+            }
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
+
             
         }
         void GetNotestoServ()

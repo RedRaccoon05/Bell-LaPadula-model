@@ -11,41 +11,53 @@ using System.Windows.Input;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Microsoft.Practices.Prism.Commands;
 
-namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
+namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
+{
 
     public class ThreeViewModel : MasterNavigationViewModel
     {
-        public ICommand _MouseDoubleClickCommand { get; set; }
-        public ThreeViewModel(){
-            GoSettingsCommand = new DelegateCommand(GoSettings);
-            _MouseDoubleClickCommand = new DelegateCommand(test);
-        }
-        void test()
+
+        public ThreeViewModel()
         {
-            int e;
-            e = 4;
+            GoSettingsCommand = new DelegateCommand(GoSettings);
+            GoBackNotesCommand = new DelegateCommand(GoBackNotes);
         }
-        public override bool IsNavigationTarget(NavigationContext navigationContext) {
+
+        public override bool IsNavigationTarget(NavigationContext navigationContext)
+        {
             return true;
         }
 
-        public override void OnNavigatedFrom(NavigationContext navigationContext) {
-            
+        public override void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+
         }
 
-        public override void OnNavigatedTo(NavigationContext navigationContext) {
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
             GetSecFlag();
         }
         public ICommand GoSettingsCommand { get; set; }
+        public ICommand GoBackNotesCommand { get; set; }
         private int _SecFlag;
         public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
-        void GetSecFlag()
+        private void GetSecFlag()
         {
             _SecFlag = SecFlagNavigator;
         }
         private void GoSettings()
         {
             Navigator.NavigateTo(PageNames.TwoView);
+        }
+       
+        private void GoBackNotes()
+        {
+
+            if (Back_to_Grid_Flag == 1)
+            {
+                Navigator.NavigateTo(PageNames.ThreeView);
+                Back_to_Grid_Flag--;
+            }
         }
     }
 }

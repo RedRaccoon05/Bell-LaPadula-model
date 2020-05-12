@@ -42,7 +42,7 @@
                     <ColumnDefinition Width="30*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Margin="0,0,2,0" Background="White">
+                <Button Grid.Column="0" Margin="0,0,2,0" Background="White" Command="{Binding GoBackNotesCommand}" >
                     <Image Source="/Resources/back.png"/>
                 </Button>
 

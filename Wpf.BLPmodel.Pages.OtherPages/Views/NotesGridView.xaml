@@ -6,12 +6,10 @@
              xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              mc:Ignorable="d" 
+
              MaxWidth="2560"
              MaxHeight="1440"
-             d:DesignHeight="600" d:DesignWidth="600">
-            
-    <Grid  >
-        
+             d:DesignHeight="600" d:DesignWidth="600">        
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition/>

@@ -20,7 +20,7 @@
             <Button  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="1">
                 <Image Source="Resources/edit.png" Height="35" />
             </Button>
-            <TextBlock FontSize="25"  Grid.Column="0" Margin="0,6,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="528"><Run Text="Title"/></TextBlock>
+            <TextBlock FontSize="25"  Grid.Column="0" Margin="0,6,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="528"><Run Text="{Binding NoteTitle}"/></TextBlock>
 
         </Grid>
 
@@ -28,9 +28,8 @@
 
         <Grid  Grid.Row="1">
             <ScrollViewer  Margin="0,2,0,0" >
-                <TextBlock TextWrapping="Wrap" Margin="0,2,0,0"  ScrollViewer.VerticalScrollBarVisibility="Hidden">
-    <Run FontSize="20" Foreground="Red" FontWeight="Bold">О</Run>
-    <Run FontSize="16" Foreground="LightSeaGreen">Jнегин был, по мненью многих был, по мненью многих Jнегин был, по мненью многих...</Run>
+                <TextBlock TextWrapping="Wrap" Margin="0,2,0,0"  ScrollViewer.VerticalScrollBarVisibility="Hidden" Text="{Binding NoteContent}" FontSize="16" Foreground="LightSeaGreen">
+
                 </TextBlock>
             </ScrollViewer>
         </Grid>
