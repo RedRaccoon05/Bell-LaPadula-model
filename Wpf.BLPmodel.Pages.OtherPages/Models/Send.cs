@@ -12,6 +12,8 @@ namespace ClientSide
         {
             try
             {
+                byte[] messageFrombase64 = Encoding.UTF8.GetBytes(message);
+                message = Convert.ToBase64String(messageFrombase64);
                 IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
 
                 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -33,12 +35,15 @@ namespace ClientSide
                     builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
                 }
                 while (socket.Available > 0);
-                Console.WriteLine("ответ сервера: " + builder.ToString());
-        
+
+
                 // закрываем сокет
                 //  socket.Shutdown(SocketShutdown.Both);
                 //   socket.Close();
-                return builder.ToString();
+                message = builder.ToString();
+                messageFrombase64 = Convert.FromBase64String(message);
+                message = Encoding.UTF8.GetString(messageFrombase64);
+                return message;
             }
             catch(SocketException ex)
             {
