@@ -12,6 +12,7 @@ using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Wpf.BLPmodel.Pages.OtherPages.Views;
+using System.Text.RegularExpressions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
@@ -49,7 +50,10 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             {
                 if(note.name == r.name)
                 {
-                    NoteToRead.data = note.data;
+                    string replaceable = @"\\n";
+                    string replacement = "\n";
+                    Regex regex = new Regex(replaceable);
+                    NoteToRead.data = regex.Replace(note.data, replacement);
                     break;
                 }
             }
