@@ -11,11 +11,17 @@ using ClientSide;
 using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
 using Wpf.BLPmodel.Pages.Core.Extentions;
+using Wpf.BLPmodel.Pages.OtherPages.Views;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
     class WriteNoteViewModel : BaseNumericViewModel
     {
+        public WriteNoteViewModel()
+        {
+            AddNoteCommand = new DelegateCommand(AddNote);
+        }
+
         public override bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
@@ -29,5 +35,23 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
 
         }
+        void AddNote()
+        {
+
+            Data_Note note = new Data_Note { data = _DataNote, name = _NameNote, secflag = SecFlagNavigator, type = "addNote" };
+            string serdata = Serialize.SerializeNote(note);
+            string result = SendData.Send_Data(serdata);
+            if (result == "Ok")
+            {
+                MessageBox.Show("Заметка добавлена");
+                Mode.flag1 = GetNote.Grid;
+                Navigator.NavigateTo(PageNames.ThreeView);
+            }
+        }
+        public ICommand AddNoteCommand { get; set; }
+        private string _DataNote;
+        private string _NameNote;
+        public string DataNote { get { return _DataNote; } set { SetProperty(ref _DataNote, value); } }
+        public string NameNote { get { return _NameNote; } set { SetProperty(ref _NameNote, value); } }
     }
 }

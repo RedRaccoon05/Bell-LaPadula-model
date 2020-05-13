@@ -56,7 +56,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
             } 
             else if (Mode.flag1 == GetNote.Write)
             {
-                sd.DataContext = new WriteNoteView();
+                sd.DataContext = new WriteNoteViewModel();
             }
 
         }
