@@ -37,16 +37,23 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         }
         void AddNote()
         {
-
-            Data_Note note = new Data_Note { data = _DataNote, name = _NameNote, secflag = SecFlagNavigator, type = "addNote" };
-            string serdata = Serialize.SerializeNote(note);
-            string result = SendData.Send_Data(serdata);
-            if (result == "Ok")
+            if (_DataNote != "" && _DataNote != null && _NameNote != "" && _NameNote != null)
             {
-                MessageBox.Show("Заметка добавлена");
-                Mode.flag1 = GetNote.Grid;
-                Navigator.NavigateTo(PageNames.ThreeView);
+                Data_Note note = new Data_Note { data = _DataNote, name = _NameNote, secflag = SecFlagNavigator, type = "addNote" };
+                string serdata = Serialize.SerializeNote(note);
+                string result = SendData.Send_Data(serdata);
+                if (result == "Ok")
+                {
+                    MessageBox.Show("Заметка добавлена");
+                    Mode.flag1 = GetNote.Grid;
+                    Navigator.NavigateTo(PageNames.ThreeView);
+                }
             }
+            else if((_DataNote == "" || _DataNote == null) && (_NameNote == "" || _NameNote == null) )
+                MessageBox.Show("Введите название и текст заметки");
+            else if(_DataNote == "" || _DataNote == null)
+                MessageBox.Show("Введите текст заметки");
+            else MessageBox.Show("Введите название заметки");
         }
         public ICommand AddNoteCommand { get; set; }
         private string _DataNote;
