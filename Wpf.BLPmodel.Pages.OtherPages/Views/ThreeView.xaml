@@ -17,6 +17,9 @@
         <DataTemplate x:Name="ReadNoteTempate" DataType="{x:Type viewmodels:ReadNoteViewModel}">
             <view:ReadNoteView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="WriteNodeTemplate" DataType="{x:Type viewmodels:WriteNoteViewModel}">
+            <view:WriteNoteView DataContext="{Binding}"/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
 

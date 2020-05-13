@@ -129,6 +129,7 @@
     <Compile Include="ViewModels\ReadNoteViewModel.cs" />
     <Compile Include="ViewModels\ThreeViewModel.cs" />
     <Compile Include="ViewModels\TwoViewModel.cs" />
+    <Compile Include="ViewModels\WriteNoteViewModel.cs" />
     <Compile Include="Views\FourView.xaml.cs">
       <DependentUpon>FourView.xaml</DependentUpon>
     </Compile>

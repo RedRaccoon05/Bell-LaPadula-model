@@ -11,6 +11,7 @@ using ClientSide;
 using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
 using Wpf.BLPmodel.Pages.Core.Extentions;
+using Wpf.BLPmodel.Pages.OtherPages.Views;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
@@ -33,6 +34,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         public NotesGridViewModel()
         {
             MouseDoubleClickCommand = new DelegateCommand<object>(NoteReader);
+            AddNoteCommand = new DelegateCommand(NoteWriter);
             GetNotestoServ();
             notesViewer = new NotesViewer(notes);
             DataGridSource = notesViewer._notesViewer;
@@ -41,7 +43,6 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         void NoteReader(object ob)
         {
 
-            Back_to_Grid_Flag++;
             NoteViewer r = ob as NoteViewer;
             NoteToRead.name = r.name;
             foreach (var note in notes.notes_)
@@ -52,10 +53,16 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                     break;
                 }
             }
+            Mode.flag1 = GetNote.Read;
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
-
             
+        }
+        void NoteWriter()
+        {
+            Mode.flag1 = GetNote.Write;
+            Navigator.NavigateTo(PageNames.OneView);
+            Navigator.NavigateTo(PageNames.ThreeView);
         }
         void GetNotestoServ()
         {
@@ -73,6 +80,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         }
 
         public ICommand MouseDoubleClickCommand { get; set; }
+        public ICommand AddNoteCommand { get; set; }
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
 

@@ -25,34 +25,48 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
     /// <summary>
     /// Логика взаимодействия для ThreeView.xaml
     /// </summary>
+    public enum GetNote : int
+    {
+        Grid, Read, Write
+    }
+    static class Mode
+    {
+        static public GetNote flag1 = GetNote.Grid;
+    }
+
     public partial class ThreeView : UserControl
     {
 
-        static int de=0;
+
         public ThreeView()
         {
-          
+
             InitializeComponent();
             //   DataContext = new TwoViewModel();
-            if (de == 0)
+            if (Mode.flag1 == GetNote.Grid)
             {
                 sd.DataContext = new NotesGridViewModel();
-                de++;
+                
             }
-            else
+            else if (Mode.flag1 == GetNote.Read)
             {
-                de--;
+               
                 sd.DataContext = new ReadNoteViewModel();
 
+            } 
+            else if (Mode.flag1 == GetNote.Write)
+            {
+                sd.DataContext = new WriteNoteView();
             }
-  
+
         }
         public void ReadNote()
         {
             sd.DataContext = new ReadNoteViewModel();
         }
 
-        private void sd_Navigated(object sender, NavigationEventArgs e) {
+        private void sd_Navigated(object sender, NavigationEventArgs e)
+        {
 
         }
     }

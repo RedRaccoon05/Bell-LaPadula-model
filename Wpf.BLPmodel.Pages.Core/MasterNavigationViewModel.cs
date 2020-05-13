@@ -36,7 +36,6 @@ namespace Wpf.BLPmodel.Pages.Core
         }
         static public Data_Note NoteToRead = new Data_Note() ;
          
-        static protected int Back_to_Grid_Flag = 0;
         static protected string UserNameNavigator;
         static protected int SecFlagNavigator;
         public virtual bool KeepAlive

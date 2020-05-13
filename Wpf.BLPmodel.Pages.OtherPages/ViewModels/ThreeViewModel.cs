@@ -10,6 +10,7 @@ using System.Windows.Input;
 
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Microsoft.Practices.Prism.Commands;
+using Wpf.BLPmodel.Pages.OtherPages.Views;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
@@ -52,12 +53,8 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
        
         private void GoBackNotes()
         {
-
-            if (Back_to_Grid_Flag == 1)
-            {
+                Mode.flag1 = GetNote.Grid;
                 Navigator.NavigateTo(PageNames.ThreeView);
-                Back_to_Grid_Flag--;
-            }
         }
     }
 }
