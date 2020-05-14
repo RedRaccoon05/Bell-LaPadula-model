@@ -27,7 +27,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
     /// </summary>
     public enum GetNote : int
     {
-        Grid, Read, Write
+        Grid, Read, Write, Edit
     }
     static class Mode
     {
@@ -42,7 +42,6 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
 
             InitializeComponent();
-            //   DataContext = new TwoViewModel();
             if (Mode.flag1 == GetNote.Grid)
             {
                 sd.DataContext = new NotesGridViewModel();
@@ -57,6 +56,10 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
             else if (Mode.flag1 == GetNote.Write)
             {
                 sd.DataContext = new WriteNoteViewModel();
+            }
+            else if (Mode.flag1 == GetNote.Edit)
+            {
+                sd.DataContext = new EditingNoteViewModel();
             }
 
         }

@@ -10,6 +10,7 @@ using Microsoft.Practices.Prism.Regions;
 using ClientSide;
 using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
+using Wpf.BLPmodel.Pages.OtherPages.Views;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
@@ -18,6 +19,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
     {
         public ReadNoteViewModel()
         {
+            EditCommand = new DelegateCommand(Editing);
             NoteContent = NoteToRead.data;
             NoteTitle = NoteToRead.name;
         }
@@ -34,9 +36,16 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
 
         }
+        void Editing()
+        {
+            Mode.flag1 = GetNote.Edit;
+            Navigator.NavigateTo(PageNames.OneView);
+            Navigator.NavigateTo(PageNames.ThreeView);
+        }
+        public ICommand EditCommand { get; set; }
         private string _NoteContent, _NoteTitle;
         public string NoteContent { get { return _NoteContent; } set { SetProperty(ref _NoteContent, value); } }
         public string NoteTitle { get { return _NoteTitle; } set { SetProperty(ref _NoteTitle, value); } }
-
+    
     }
 }

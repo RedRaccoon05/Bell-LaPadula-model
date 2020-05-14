@@ -83,12 +83,13 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         }
 
-        public ICommand MouseDoubleClickCommand { get; set; }
-        public ICommand AddNoteCommand { get; set; }
-        public override void OnNavigatedTo(NavigationContext navigationContext)
+         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
 
         }
+        public ICommand MouseDoubleClickCommand { get; set; }
+        public ICommand AddNoteCommand { get; set; }
+       
         NotesViewer notesViewer;
         Notes_ notes = new Notes_();
         private List<NoteViewer> _DataGridSource;
