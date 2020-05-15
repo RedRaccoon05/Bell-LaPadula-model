@@ -47,17 +47,30 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                 MessageBox.Show("Введите текст заметки");
             else MessageBox.Show("Введите название заметки");
         }
-   virtual public void SendNotetoServ()
+        virtual public void SendNotetoServ()
         {
-            Data_Note note = new Data_Note { data = _DataNote, name = _NameNote, secflag = SecFlagNavigator, type = "addNote" };
+            Data_Note note = new Data_Note { data = _DataNote, name = _NameNote, secflag = SecFlagNavigator };
+            if (CheckExist(note))
+            {
+                note.type = "addNote";
+                string serdata = Serialize.SerializeNote(note);
+                string result = SendData.Send_Data(serdata);
+                if (result == "Ok")
+                {
+                    MessageBox.Show("Заметка добавлена");
+                    Mode.flag1 = GetNote.Grid;
+                    Navigator.NavigateTo(PageNames.ThreeView);
+                }
+            }
+            else MessageBox.Show("Заметка с таким названием уже существует");
+        }
+       protected bool CheckExist(Data_Note note)
+        {
+            note.type = "checkexist";
             string serdata = Serialize.SerializeNote(note);
             string result = SendData.Send_Data(serdata);
-            if (result == "Ok")
-            {
-                MessageBox.Show("Заметка добавлена");
-                Mode.flag1 = GetNote.Grid;
-                Navigator.NavigateTo(PageNames.ThreeView);
-            }
+            return (result == "Ok");
+            
         }
         public ICommand AddNoteCommand { get; set; }
         private string _DataNote;

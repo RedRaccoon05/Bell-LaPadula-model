@@ -40,21 +40,27 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         public override void SendNotetoServ()
         {
 
-            Data_Note note = new Data_Note { data = NoteToRead.data, name = NoteToRead.name, secflag = SecFlagNavigator, type = "deleteNote" };
-            string serdata = Serialize.SerializeNote(note);
-            string result = SendData.Send_Data(serdata);
-            if (result == "Ok")
+            Data_Note note = new Data_Note { data = DataNote, name = NameNote, secflag = SecFlagNavigator };
+            if (CheckExist(note)|| note.name ==NoteToRead.name)
             {
-                note = new Data_Note { data = DataNote, name = NameNote, secflag = SecFlagNavigator, type = "addNote" };
-                serdata = Serialize.SerializeNote(note);
-                result = SendData.Send_Data(serdata);
+                note.data = NoteToRead.data; note.name = NoteToRead.name; note.secflag = SecFlagNavigator;
+                note.type = "deleteNote";
+                string serdata = Serialize.SerializeNote(note);
+                string result = SendData.Send_Data(serdata);
                 if (result == "Ok")
                 {
-                    MessageBox.Show("Заметка отредактирована");
-                    Mode.flag1 = GetNote.Grid;
-                    Navigator.NavigateTo(PageNames.ThreeView);
+                    note = new Data_Note { data = DataNote, name = NameNote, secflag = SecFlagNavigator, type = "addNote" };
+                    serdata = Serialize.SerializeNote(note);
+                    result = SendData.Send_Data(serdata);
+                    if (result == "Ok")
+                    {
+                        MessageBox.Show("Заметка отредактирована");
+                        Mode.flag1 = GetNote.Grid;
+                        Navigator.NavigateTo(PageNames.ThreeView);
+                    }
                 }
             }
+            else MessageBox.Show("Заметка с таким названием уже существует");
         }
 
     }
