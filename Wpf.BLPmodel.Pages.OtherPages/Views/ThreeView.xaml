@@ -20,6 +20,9 @@
         <DataTemplate x:Name="WriteNodeTemplate" DataType="{x:Type viewmodels:WriteNoteViewModel}">
             <view:WriteNoteView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="EditingNoteTemplate" DataType="{x:Type viewmodels:EditingNoteViewModel}">
+            <view:WriteNoteView DataContext="{Binding}"/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
 

@@ -10,7 +10,7 @@
              MaxWidth="2560"
              MaxHeight="1440"
              d:DesignHeight="600" d:DesignWidth="600">
-    <Grid  Margin="0,5,3,5">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition/>
@@ -23,7 +23,7 @@
         <Grid  Grid.Row="1">
 
             <DataGrid  x:Name="ra" Margin="0,2,0,0" IsReadOnly="True" ItemsSource="{Binding DataGridSource}" IsSynchronizedWithCurrentItem="True" Background="White">
-          
+
                 <DataGrid.InputBindings>
                     <MouseBinding MouseAction="LeftDoubleClick"
                                  Command="{Binding MouseDoubleClickCommand}"
@@ -31,7 +31,7 @@
                 </DataGrid.InputBindings>
 
             </DataGrid>
-            
+
         </Grid>
 
 

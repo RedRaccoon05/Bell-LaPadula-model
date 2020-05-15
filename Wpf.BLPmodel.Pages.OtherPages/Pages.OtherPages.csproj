@@ -123,6 +123,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\BaseNumericViewModel.cs" />
+    <Compile Include="ViewModels\EditingNoteViewModel.cs" />
     <Compile Include="ViewModels\FourViewModel.cs" />
     <Compile Include="ViewModels\NotesGridViewModel.cs" />
     <Compile Include="ViewModels\OneViewModel.cs" />
