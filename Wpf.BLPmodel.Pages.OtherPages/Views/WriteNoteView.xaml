@@ -15,14 +15,15 @@
         <Grid Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="121"/>
+                <ColumnDefinition Width="47"/>
             </Grid.ColumnDefinitions>
 
-            <Button Command="{Binding AddNoteCommand}"  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="1">
-                <Image Source="Resources/check.png" Height="35" />
+            <Button Command="{Binding AddNoteCommand}"  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="2">
+                <Image Source="/Resources/check.png" Height="35" />
             </Button>
-            <TextBox Text="{Binding NameNote}" FontSize="25" Grid.Column="0" Margin="0,6,0,5.333" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="630"></TextBox>
-            <ComboBox  ItemsSource="{Binding ComboSource}" SelectedItem="{Binding SelectedSecFlag}"  IsEditable="True" IsReadOnly="True" Text="Уровень доступа" HorizontalAlignment="Right" Margin="633,10,0,0" VerticalAlignment="Top" Width="119"/>
+            <TextBox Text="{Binding NameNote}" FontSize="25" Grid.Column="0" Margin="0,6,2,6" ></TextBox>
+            <ComboBox  ItemsSource="{Binding ComboSource}" SelectedItem="{Binding SelectedSecFlag}"  IsEditable="True" Grid.Column="1" IsReadOnly="True" Text="Уровень доступа" HorizontalAlignment="Right" Margin="0,10,0,10" Width="121"  />
 
         </Grid>
 
@@ -30,7 +31,7 @@
 
         <Grid  Grid.Row="1">
             <ScrollViewer  Margin="0,2,0,0" >
-                <TextBox Text="{Binding DataNote}" TextWrapping="Wrap"  Foreground="LightSeaGreen" Margin="0,2,0,0" FontSize="16"  ScrollViewer.VerticalScrollBarVisibility="Hidden" SpellCheck.IsEnabled="True" Language="ru-ru" TextAlignment="Left">
+                <TextBox Text="{Binding DataNote}" TextWrapping="Wrap" AcceptsReturn="True" Foreground="LightSeaGreen" Margin="0,2,0,0" FontSize="16"  ScrollViewer.VerticalScrollBarVisibility="Hidden" SpellCheck.IsEnabled="True" Language="ru-ru" TextAlignment="Left" >
 
                 </TextBox>
             </ScrollViewer>
