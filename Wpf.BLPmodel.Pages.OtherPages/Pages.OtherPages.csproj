@@ -200,17 +200,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\back.png" />
-    <Resource Include="Resources\r.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\check.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
