@@ -21,7 +21,8 @@
             <Button Command="{Binding AddNoteCommand}"  Margin="0,0,0,0"  Background="White" Width="45" HorizontalAlignment="Right" Grid.Column="1">
                 <Image Source="Resources/check.png" Height="35" />
             </Button>
-            <TextBox Text="{Binding NameNote}" FontSize="25" Grid.Column="0" Margin="0,6,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="745"></TextBox>
+            <TextBox Text="{Binding NameNote}" FontSize="25" Grid.Column="0" Margin="0,6,0,5.333" VerticalAlignment="Center" HorizontalAlignment="Left" Height="34" Width="630"></TextBox>
+            <ComboBox  ItemsSource="{Binding ComboSource}" SelectedItem="{Binding SelectedSecFlag}"  IsEditable="True" IsReadOnly="True" Text="Уровень доступа" HorizontalAlignment="Right" Margin="633,10,0,0" VerticalAlignment="Top" Width="119"/>
 
         </Grid>
 

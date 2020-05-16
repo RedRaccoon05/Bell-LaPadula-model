@@ -49,7 +49,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                 string result = SendData.Send_Data(serdata);
                 if (result == "Ok")
                 {
-                    note = new Data_Note { data = DataNote, name = NameNote, secflag = SecFlagNavigator, type = "addNote" };
+                    note = new Data_Note { data = DataNote, name = NameNote, secflag = SelectedSecFlag, type = "addNote" };
                     serdata = Serialize.SerializeNote(note);
                     result = SendData.Send_Data(serdata);
                     if (result == "Ok")

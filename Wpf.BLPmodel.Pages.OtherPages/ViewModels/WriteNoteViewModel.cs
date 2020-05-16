@@ -19,7 +19,12 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
     {
         public WriteNoteViewModel()
         {
+            _SelectedSecFlag = SecFlagNavigator;
             AddNoteCommand = new DelegateCommand(AddNote);
+            for (int i = SecFlagNavigator; i != 0; i--)
+                _ComboSource.Add(i.ToString());
+            ComboSource = _ComboSource;
+      
         }
 
         public override bool IsNavigationTarget(NavigationContext navigationContext)
@@ -53,6 +58,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             if (CheckExist(note))
             {
                 note.type = "addNote";
+                note.secflag = _SelectedSecFlag;
                 string serdata = Serialize.SerializeNote(note);
                 string result = SendData.Send_Data(serdata);
                 if (result == "Ok")
@@ -75,7 +81,12 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         public ICommand AddNoteCommand { get; set; }
         private string _DataNote;
         private string _NameNote;
+        private int _SelectedSecFlag;
+        public int SelectedSecFlag { get { return _SelectedSecFlag; } set { SetProperty(ref _SelectedSecFlag, value); } }
+        public List<string> _ComboSource = new List<string>();
+        public IEnumerable<string> ComboSource { get;  set; }
         public string DataNote { get { return _DataNote; } set { SetProperty(ref _DataNote, value); } }
         public string NameNote { get { return _NameNote; } set { SetProperty(ref _NameNote, value); } }
     }
+
 }
