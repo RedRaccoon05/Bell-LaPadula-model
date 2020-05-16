@@ -53,7 +53,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
        
         private void GoBackNotes()
         {
-                Mode.flag1 = GetNote.Grid;
+                Mode.ModeFlag = GetNote.Grid;
                 Navigator.NavigateTo(PageNames.ThreeView);
         }
     }

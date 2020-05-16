@@ -31,7 +31,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
     }
     static class Mode
     {
-        static public GetNote flag1 = GetNote.Grid;
+        static public GetNote ModeFlag = GetNote.Grid;
     }
 
     public partial class ThreeView : UserControl
@@ -42,36 +42,28 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
 
             InitializeComponent();
-            if (Mode.flag1 == GetNote.Grid)
+            if (Mode.ModeFlag == GetNote.Grid)
             {
-                sd.DataContext = new NotesGridViewModel();
+                FrameData.DataContext = new NotesGridViewModel();
                 
             }
-            else if (Mode.flag1 == GetNote.Read)
+            else if (Mode.ModeFlag == GetNote.Read)
             {
-               
-                sd.DataContext = new ReadNoteViewModel();
+
+                FrameData.DataContext = new ReadNoteViewModel();
 
             } 
-            else if (Mode.flag1 == GetNote.Write)
+            else if (Mode.ModeFlag == GetNote.Write)
             {
-                sd.DataContext = new WriteNoteViewModel();
+                FrameData.DataContext = new WriteNoteViewModel();
             }
-            else if (Mode.flag1 == GetNote.Edit)
+            else if (Mode.ModeFlag == GetNote.Edit)
             {
-                sd.DataContext = new EditingNoteViewModel();
+                FrameData.DataContext = new EditingNoteViewModel();
             }
 
         }
-        public void ReadNote()
-        {
-            sd.DataContext = new ReadNoteViewModel();
-        }
-
-        private void sd_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
+   
     }
 
 }

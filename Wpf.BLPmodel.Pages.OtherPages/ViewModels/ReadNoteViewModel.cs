@@ -38,7 +38,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         }
         void Editing()
         {
-            Mode.flag1 = GetNote.Edit;
+            Mode.ModeFlag = GetNote.Edit;
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
         }

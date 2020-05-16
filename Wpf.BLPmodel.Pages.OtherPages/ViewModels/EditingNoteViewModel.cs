@@ -55,7 +55,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                     if (result == "Ok")
                     {
                         MessageBox.Show("Заметка отредактирована");
-                        Mode.flag1 = GetNote.Grid;
+                        Mode.ModeFlag = GetNote.Grid;
                         Navigator.NavigateTo(PageNames.ThreeView);
                     }
                 }

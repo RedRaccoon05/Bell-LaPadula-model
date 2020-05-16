@@ -44,11 +44,11 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         void NoteReader(object ob)
         {
 
-            NoteViewer r = ob as NoteViewer;
-            NoteToRead.name = r.name;
+            NoteViewer Notes = ob as NoteViewer;
+            NoteToRead.name = Notes.name;
             foreach (var note in notes.notes_)
             {
-                if(note.name == r.name)
+                if(note.name == Notes.name)
                 {
                     string replaceable = @"\\n";
                     string replacement = "\n";
@@ -57,14 +57,14 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                     break;
                 }
             }
-            Mode.flag1 = GetNote.Read;
+            Mode.ModeFlag = GetNote.Read;
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
             
         }
         void NoteWriter()
         {
-            Mode.flag1 = GetNote.Write;
+            Mode.ModeFlag = GetNote.Write;
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
         }

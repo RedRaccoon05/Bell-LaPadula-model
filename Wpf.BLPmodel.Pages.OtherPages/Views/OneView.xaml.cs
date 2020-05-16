@@ -95,19 +95,19 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         {
             CheckValidator(d);
         }
-        static private bool ParseNum(string message)
+        static private bool ParseNum(string message) //Проверка строки, true если это цифра 
         {
             int x = 0;
             Int32.TryParse(message, out x);
             return (x != 0) ? true : false;
         }
-        private static void CheckValidator(DependencyObject d)
+        private static void CheckValidator(DependencyObject d)// Используется для работы с Passwordbox
         {
             var pv = (PasswordValidator)d;
             _passwordBoxes[pv.Box2] = pv.Box2.BorderBrush;
-            if (pv.Mode == 0)
+            if (pv.Mode == 0) //  Проверяет совпадают ли пароли
             {
-                pv.Box2.LostFocus += (obj, evt) =>
+                pv.Box2.LostFocus += (obj, evt) => //Когда фокус на Box2
                 {
                     if (pv.Box1.Password != pv.Box2.Password)
                     {
@@ -124,7 +124,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
                 };
 
             }
-            else if (pv.Mode == 1)
+            else if (pv.Mode == 1)//Проверка при смене пароля
             {
                 pv.Box2.LostFocus += (obj, evt) =>
                 {
