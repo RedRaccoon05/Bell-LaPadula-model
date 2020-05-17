@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
              mc:Ignorable="d" 
+             Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -60,7 +61,7 @@
 
                 
                 <Button Command="{Binding GoBackCommand}" Content="Назад" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="65" Height="34"/>
-                <Label Content="Имя: "  FontSize="18" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                <Label Content="Имя: "  FontSize="18" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <Label Name="Labell_UserName" Content="{Binding UserName}" FontSize="18" HorizontalAlignment="Left" Margin="74,78,0,0" VerticalAlignment="Top"/>
             </Grid>
 
