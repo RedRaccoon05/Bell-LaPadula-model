@@ -10,7 +10,9 @@
 
 
     <Grid>
- 
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/backg.png"/>
+        </Grid.Background>
         <Canvas Background="White" Width="210" VerticalAlignment="Center" HorizontalAlignment="Center" Height="150" Margin="55,20,0,0"/>
 
         <Label x:Name="Label_Log" Content="Логин:"  Margin="0,0,60,80" VerticalAlignment="Center" HorizontalAlignment="Center"/>

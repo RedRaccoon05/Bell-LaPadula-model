@@ -13,7 +13,9 @@
 
 
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/backg.png"/>
+        </Grid.Background>
         <Canvas Background="White" Width="210" VerticalAlignment="Center" HorizontalAlignment="Center" Height="170" Margin="55,0,0,0"/>
         <Label x:Name="Label_Log" Content="Логин:" Margin="0,0,60,124" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label x:Name="Label_Pass" Content="Пароль:" Margin="0,0,70,80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
