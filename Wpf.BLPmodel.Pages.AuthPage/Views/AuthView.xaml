@@ -8,16 +8,22 @@
              FontSize="14"             
              d:DesignHeight="300" d:DesignWidth="500" FontFamily="Comic Sans MS" FontWeight="Bold">
 
+
     <Grid>
-        <Label x:Name="Label_Log" Content="Логин:" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_Pass" Content="Пароль:" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_Err" Content="{Binding ErrorMessage}" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" Width="244" Height="40" FontSize="12"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/backg.png"/>
+        </Grid.Background>
+        <Canvas Background="White" Width="210" VerticalAlignment="Center" HorizontalAlignment="Center" Height="150" Margin="55,20,0,0"/>
 
-        <TextBox   Text="{Binding Login}" x:Name="Text_Log" HorizontalAlignment="Left" Height="20" Margin="75,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <PasswordBox  x:Name="Text_Pass" HorizontalAlignment="Left" Height="20" Margin="75,40,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="Label_Log" Content="Логин:"  Margin="0,0,60,80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="Label_Pass" Content="Пароль:"  Margin="0,0,70,35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="Label_Err" Content="{Binding ErrorMessage}"  Margin="75,140,0,0" Width="244" Height="40" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <Button CommandParameter="{Binding ElementName=Text_Pass}"  Command="{Binding LoginCommand}" x:Name="But_Conf" Content="Подтвердить" HorizontalAlignment="Left" Margin="20,65,0,0" VerticalAlignment="Top" Width="175"/>
-        <Button  Command="{Binding RegCommand}"   x:Name="But_Reg" Content="Регистрация" HorizontalAlignment="Left" Margin="20,90,0,0" Width="175" VerticalAlignment="Top"/>
+        <TextBox   Text="{Binding Login}" x:Name="Text_Log"  Height="20" Margin="113,0,0,78" TextWrapping="Wrap"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="120"/>
+        <PasswordBox  x:Name="Text_Pass"  Height="20" Margin="113,3,0,35"  Width="120" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Button CommandParameter="{Binding ElementName=Text_Pass}"  Command="{Binding LoginCommand}" x:Name="But_Conf" Content="Подтвердить"  Margin="53,25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="178"/>
+        <Button  Command="{Binding RegCommand}"   x:Name="But_Reg" Content="Регистрация" Margin="53,75,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="178"/>
 
     </Grid>
 

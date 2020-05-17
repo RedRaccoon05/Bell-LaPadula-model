@@ -4,32 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wpf.BLPmodel.Pages.OtherPages.Views"
-             
+               FontSize="14"    
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" FontFamily="Comic Sans MS" FontWeight="Bold">
+             d:DesignHeight="300" d:DesignWidth="500" FontFamily="Comic Sans MS" FontWeight="Bold">
     <UserControl.Resources>
         <ControlTemplate x:Key="validationTemplate"/>
     </UserControl.Resources>
 
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/backg.png"/>
+        </Grid.Background>
+        <Canvas Background="White" Width="210" VerticalAlignment="Center" HorizontalAlignment="Center" Height="170" Margin="55,0,0,0"/>
+        <Label x:Name="Label_Log" Content="Логин:" Margin="0,0,60,124" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="Label_Pass" Content="Пароль:" Margin="0,0,70,80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="Label_PassConf" Content="Пароль:" Margin="0,0,70,35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="Label_Err" Content="" Margin="54,140,0,0" Width="140" Height="40" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Label x:Name="Label_Err2" Content="{Binding ErrorMessage}"  Margin="75,140,0,0" Width="244" Height="40" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <Label x:Name="Label_Log" Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0"/>
-        <Label x:Name="Label_Pass" Content="Пароль:" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_PassConf" Content="Пароль:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_Err" Content="" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="175"/>
-        <Label x:Name="Label_Err2" Content="{Binding ErrorMessage}" HorizontalAlignment="Left" Margin="10,151,-3,0" VerticalAlignment="Top" Width="293"/>
-
-        <TextBox Text="{Binding Login}" x:Name="Text_Log" HorizontalAlignment="Left" Height="20" Margin="65,9,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Text_Pass" HorizontalAlignment="Left" Height="20" Margin="65,34,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox  x:Name="Text_PassConf" HorizontalAlignment="Left" Height="20" Margin="65,59,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button  Command="{Binding GoRegCommand}" CommandParameter="{Binding ElementName=Text_Pass}" Content="Регистрация"   x:Name="But_Conf"  HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="175" >
+        <TextBox Text="{Binding Login}" x:Name="Text_Log"  Height="20" TextWrapping="Wrap" Margin="113,0,0,124" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120"/>
+        <PasswordBox x:Name="Text_Pass"  Height="20" Margin="113,0,0,78" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120"/>
+        <PasswordBox  x:Name="Text_PassConf"  Height="20" Margin="113,0,0,32"  Width="120" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button  Command="{Binding GoRegCommand}" CommandParameter="{Binding ElementName=Text_Pass}" Content="Регистрация"   x:Name="But_Conf" Margin="53,25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="178" >
 
 
 
         </Button>
         <local:PasswordValidator Mode="0"  Box1="{Binding ElementName=Text_Pass}" Box2="{Binding ElementName=Text_PassConf}" Butt="{Binding ElementName=But_Conf}" Label_Err="{Binding ElementName=Label_Err}"  />
-        <Button Command="{Binding GoBackCommand}" x:Name="But_Auth" Content="Авторизация" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="175" />
+        <Button Command="{Binding GoBackCommand}" x:Name="But_Auth" Content="Авторизация"  Margin="53,75,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="178" />
 
     </Grid>
 
