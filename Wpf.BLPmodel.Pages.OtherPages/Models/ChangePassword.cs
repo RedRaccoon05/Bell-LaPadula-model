@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 namespace ClientSide
 {
+    /// <summary>
+    /// Смена пароля пользователя
+    /// </summary>
     static class ChangePassword
     {
         static public Data_Authentication data_change_pass = new Data_Authentication();

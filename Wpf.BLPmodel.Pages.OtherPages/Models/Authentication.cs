@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 namespace ClientSide
 {
-    
+    /// <summary>
+    /// Аутентификация пользователя
+    /// </summary>
     static class Authentication
     {
         public static Data_Authentication data_auth = new Data_Authentication();
