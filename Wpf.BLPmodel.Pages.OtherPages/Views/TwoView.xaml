@@ -62,7 +62,7 @@
                 
                 <Button Command="{Binding GoBackCommand}" Content="Назад" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="65" Height="34"/>
                 <Label Content="Имя: "  FontSize="18" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <Label Name="Labell_UserName" Content="{Binding UserName}" FontSize="18" HorizontalAlignment="Left" Margin="74,78,0,0" VerticalAlignment="Top"/>
+                <Label Name="Labell_UserName" Content="{Binding UserName}" FontSize="18" HorizontalAlignment="Left" Margin="74,4,0,0" VerticalAlignment="Center"/>
             </Grid>
 
 
