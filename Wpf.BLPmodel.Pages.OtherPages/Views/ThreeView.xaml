@@ -87,7 +87,7 @@
 
         </Grid>
 
-        <Frame Grid.Column="0" x:Name="sd" Content="{Binding}"  Margin="5,5,2,5" />
+        <Frame Grid.Column="0" x:Name="FrameData" Content="{Binding}"  Margin="5,5,2,5" />
 
     </Grid>
 </UserControl>
