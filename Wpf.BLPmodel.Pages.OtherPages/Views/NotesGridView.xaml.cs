@@ -24,9 +24,16 @@ namespace Wpf.BLPmodel.Pages.OtherPages.Views
         public NotesGridView()
         {
             InitializeComponent();
-
+            DataG.Loaded += SetMinWidths;
         }
-
+        public void SetMinWidths(object source, EventArgs e)
+        {
+            foreach (var column in DataG.Columns)
+            {
+                column.MinWidth = column.MinWidth;
+                column.Width = new DataGridLength(1,DataGridLengthUnitType.Pixel,575,100);
+            }
+        }
     }
 }
 
