@@ -22,6 +22,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
             GoSettingsCommand = new DelegateCommand(GoSettings);
             GoBackNotesCommand = new DelegateCommand(GoBackNotes);
+            GoExitCommand = new DelegateCommand(GoExit);
         }
 
         public override bool IsNavigationTarget(NavigationContext navigationContext)
@@ -40,6 +41,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         }
         public ICommand GoSettingsCommand { get; set; }
         public ICommand GoBackNotesCommand { get; set; }
+        public ICommand GoExitCommand { get; set; }
         private int _SecFlag;
         public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
         private void GetSecFlag()
@@ -50,11 +52,17 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
             Navigator.NavigateTo(PageNames.TwoView);
         }
-       
+
         private void GoBackNotes()
         {
-                Mode.ModeFlag = GetNote.Grid;
-                Navigator.NavigateTo(PageNames.ThreeView);
+            Mode.ModeFlag = GetNote.Grid;
+            Navigator.NavigateTo(PageNames.ThreeView);
+        }
+
+        private void GoExit()
+        {
+            Mode.ModeFlag = GetNote.Grid;
+            Navigator.NavigateTo(PageNames.AuthView);
         }
     }
 }

@@ -73,7 +73,6 @@ namespace Wpf.BLPmodel.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap backg {
             get {
                 object obj = ResourceManager.GetObject("backg", resourceCulture);
@@ -84,7 +83,6 @@ namespace Wpf.BLPmodel.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap check {
             get {
                 object obj = ResourceManager.GetObject("check", resourceCulture);
@@ -98,6 +96,16 @@ namespace Wpf.BLPmodel.Properties {
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exit {
+            get {
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
