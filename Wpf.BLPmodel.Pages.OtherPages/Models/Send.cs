@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 namespace ClientSide
 {
     static class SendData
     {
         static int port = 1337;
         static string address = "127.0.0.1";
-    public  static  string Send_Data(string message)
+        public static string Send_Data(string message)
         {
             try
             {
@@ -20,7 +20,7 @@ namespace ClientSide
                 // подключаемся к удаленному хосту
                 socket.Connect(ipPoint);
                 Console.Write("Введите сообщение:");
-              
+
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 socket.Send(data);
 
@@ -45,7 +45,7 @@ namespace ClientSide
                 message = Encoding.UTF8.GetString(messageFrombase64);
                 return message;
             }
-            catch(SocketException ex)
+            catch (SocketException ex)
             {
                 if (ex.ErrorCode == 10061)
                     return "Ошибка. Соединение не установленно!";
@@ -55,7 +55,7 @@ namespace ClientSide
             {
                 return ex.Message;
             }
-            
+
         }
     }
 }

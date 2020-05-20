@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 namespace ClientSide
 {
     /// <summary>
@@ -20,7 +16,7 @@ namespace ClientSide
             data_auth.password = hash.ComputeHash(Encoding.UTF8.GetBytes(pass_));
             data_auth.operation = "authentication";
         }
-        
+
     }
 
 }

@@ -1,31 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
-using ClientSide;
-using Wpf.BLPmodel.Pages.Core;
+using System;
 using System.Windows;
-namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels {
-    public class TwoViewModel : BaseNumericViewModel {
+using System.Windows.Controls;
+using System.Windows.Input;
+namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
+{
+    public class TwoViewModel : BaseNumericViewModel
+    {
 
-        public TwoViewModel() {
+        public TwoViewModel()
+        {
             ChangePasswordCommand = new DelegateCommand<object>(ChangePassword_);
         }
 
-        public override bool IsNavigationTarget(NavigationContext navigationContext) {
+        public override bool IsNavigationTarget(NavigationContext navigationContext)
+        {
             return true;
         }
 
-        public override void OnNavigatedFrom(NavigationContext navigationContext) {
-           
+        public override void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+
         }
 
-        public override void OnNavigatedTo(NavigationContext navigationContext) {
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
             GetUserName();
             GetSecFlag();
         }

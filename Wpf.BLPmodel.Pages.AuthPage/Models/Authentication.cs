@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 //TODO какие еще могут быть представления данных
 namespace ClientSide
 {
-    
+
     static class Authentication
     {
         public static Data_Authentication data_auth = new Data_Authentication();
@@ -19,7 +15,7 @@ namespace ClientSide
             data_auth.password = hash.ComputeHash(Encoding.UTF8.GetBytes(pass_));
             data_auth.operation = "authentication";
         }
-        
+
     }
 
 }

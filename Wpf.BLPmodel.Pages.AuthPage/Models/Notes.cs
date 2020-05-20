@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ClientSide
 {
@@ -12,7 +8,7 @@ namespace ClientSide
 
         static public void Notes_In(string name_, string date_, string writer_, string notes_, int flag_)
         {
-            data_Notes.Add(new Data_Note {type = "notes", name = name_, data = notes_, secflag = flag_});
+            data_Notes.Add(new Data_Note { type = "notes", name = name_, data = notes_, secflag = flag_ });
         }
-    } 
+    }
 }

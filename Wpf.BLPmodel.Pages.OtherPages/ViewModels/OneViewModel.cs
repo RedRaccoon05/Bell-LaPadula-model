@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Practices.Prism.Regions;
-using Wpf.BLPmodel.Pages.Core;
-using System.Windows;
-using Wpf.BLPmodel.Pages.Core.Extentions;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Commands;
-using ClientSide;
-using System.Windows.Input;
-using System.Globalization;
-using System.Windows.Data;
+using Microsoft.Practices.Prism.Regions;
 using System.Windows.Controls;
+using System.Windows.Input;
+using Wpf.BLPmodel.Pages.Core;
+using Wpf.BLPmodel.Pages.Core.Extentions;
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
     public class OneViewModel : MasterNavigationViewModel
@@ -38,7 +30,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             //MessageBo x.Show(String.Format("тестовый параметра:{0}", testParam));
         }
 
- 
+
 
         private string _Login, _ErrorMessage;
 
@@ -59,7 +51,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         public ICommand GoBackCommand { get; set; }
 
         public ICommand GoRegCommand { get; set; }
-   
+
         private void GoBack()
         {
             Navigator.NavigateTo(PageNames.AuthView);
@@ -68,7 +60,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         private void GoReg(object shortPageId)
         {
             ErrorMessage = "";
-            string result_send =   SendtoServerReg(shortPageId);
+            string result_send = SendtoServerReg(shortPageId);
             if (result_send == "Ok")
                 GoBack();
             else ErrorMessage = result_send;
@@ -82,7 +74,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
                 PasswordBox pwBox = shortPageId as PasswordBox;
                 string pass = pwBox.Password;
 
-              
+
 
                 if (pass != "" && pass != null)
                 {
@@ -96,7 +88,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
                     }
                     else return "Пароль не соответствует требованиям безопасности";
-                 
+
                 }
                 else return "Введите пароль.";
             }
