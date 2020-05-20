@@ -61,6 +61,8 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels
             if (ParseNum(result_send))
             {
                 SecFlagNavigator = Int32.Parse(result_send);
+                Login = string.Empty;
+                ErrorMessage = string.Empty;
                 Navigator.NavigateTo(PageNames.ThreeView);
 
             }
@@ -78,6 +80,7 @@ namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels
                 {
                     Authentication.Auth_(_Login, pass);
                     pass = string.Empty;
+                    pwBox.Password = string.Empty;
                     string serdata = Serialize.SerializeAuth(Authentication.data_auth);
                     string result_send = SendData.Send_Data(serdata);
                     UserNameNavigator = _Login;
