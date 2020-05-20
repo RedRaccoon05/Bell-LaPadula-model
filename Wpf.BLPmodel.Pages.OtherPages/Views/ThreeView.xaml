@@ -66,8 +66,8 @@
                     </Image>
                 </Button>
 
-                <Button Command="{Binding GoExitCommand}" Grid.Column="2" Margin="0,0,2,0" Background="White">
-                    <Image Source="/Resources/r.png" Height="35"/>
+                <Button Command="{Binding GoExitCommand}" Grid.Column="2" Margin="0,0,2,0" Background="White" Click="Button_Click_1" HorizontalAlignment="Right" Width="47" UseLayoutRounding="True">
+                    <Image Source="/Resources/Exit.png" Height="35"/>
                 </Button>
 
 
