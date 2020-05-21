@@ -33,7 +33,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
         }
-        public ICommand EditCommand { get; set; }
+        public ICommand EditCommand { get; set; }//Редактирование заметки
         private string _NoteContent, _NoteTitle;
         public string NoteContent { get { return _NoteContent; } set { SetProperty(ref _NoteContent, value); } }
         public string NoteTitle { get { return _NoteTitle; } set { SetProperty(ref _NoteTitle, value); } }

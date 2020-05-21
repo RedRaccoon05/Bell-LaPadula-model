@@ -30,7 +30,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
-            GetSecFlag();
+            GetSecFlag(); //Получения флага уровня доступа для отобрашение на странице
         }
         public ICommand GoSettingsCommand { get; set; }
         public ICommand GoBackNotesCommand { get; set; }
@@ -52,7 +52,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.ThreeView);
         }
 
-        private void GoExit()
+        private void GoExit() //Выход на страницу входа
         {
             Mode.ModeFlag = GetNote.Grid;
             Navigator.NavigateTo(PageNames.AuthView);

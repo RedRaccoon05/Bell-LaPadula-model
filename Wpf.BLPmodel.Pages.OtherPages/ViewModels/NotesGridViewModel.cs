@@ -29,19 +29,19 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
             MouseDoubleClickCommand = new DelegateCommand<object>(NoteReader);
             AddNoteCommand = new DelegateCommand(NoteWriter);
-            GetNotestoServ();
+            GetNotestoServ(); //Получение заметок с сервера
             notesViewer = new NotesViewer(notes);
             DataGridSource = notesViewer._notesViewer;
             Navigator.NavigateTo(PageNames.OneView);
         }
-        void NoteReader(object ob)
+        void NoteReader(object ob)//Переход на страницу чтения
         {
 
             NoteViewer Notes = ob as NoteViewer;
             NoteToRead.name = Notes.name;
             foreach (var note in notes.notes_)
             {
-                if (note.name == Notes.name)
+                if (note.name == Notes.name)// Фикс двойного экранирования \n
                 {
                     string replaceable = @"\\n";
                     string replacement = "\n";
@@ -55,7 +55,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.ThreeView);
 
         }
-        void NoteWriter()
+        void NoteWriter()//Переход на страницу создания новой заметки
         {
             Mode.ModeFlag = GetNote.Write;
             Navigator.NavigateTo(PageNames.OneView);
@@ -80,7 +80,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
 
         }
-        public ICommand MouseDoubleClickCommand { get; set; }
+        public ICommand MouseDoubleClickCommand { get; set; } // Срабатывает при двойном клике
         public ICommand AddNoteCommand { get; set; }
 
         NotesViewer notesViewer;

@@ -64,7 +64,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             }
             else MessageBox.Show("Заметка с таким названием уже существует");
         }
-        protected bool CheckExist(Data_Note note)
+        protected bool CheckExist(Data_Note note) //Проверка названия заметки на уникальность
         {
             note.type = "checkexist";
             string serdata = Serialize.SerializeNote(note);
@@ -77,8 +77,8 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         private string _NameNote;
         private int _SelectedSecFlag;
         public int SelectedSecFlag { get { return _SelectedSecFlag; } set { SetProperty(ref _SelectedSecFlag, value); } }
-        public List<string> _ComboSource = new List<string>();
-        public IEnumerable<string> ComboSource { get; set; }
+        public List<string> _ComboSource = new List<string>();//Список доступных уровней доступа
+        public IEnumerable<string> ComboSource { get; set; } 
         public string DataNote { get { return _DataNote; } set { SetProperty(ref _DataNote, value); } }
         public string NameNote { get { return _NameNote; } set { SetProperty(ref _NameNote, value); } }
     }

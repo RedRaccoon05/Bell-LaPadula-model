@@ -2,6 +2,9 @@
 
 namespace ClientSide
 {
+    /// <summary>
+    /// Инициализация заметок
+    /// </summary>
     static class Notes
     {
         static public List<Data_Note> data_Notes = new List<Data_Note>();

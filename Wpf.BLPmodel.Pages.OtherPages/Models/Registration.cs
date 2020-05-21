@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 using System.Text;
 namespace ClientSide
 {
+    /// <summary>
+    /// Ркгистрация пользователя
+    /// </summary>
     static class Registration
     {
         static public Data_Authentication data_reg = new Data_Authentication();
@@ -12,6 +15,7 @@ namespace ClientSide
             data_reg.login = login_;
             SHA256 hash = SHA256.Create();
             data_reg.password = hash.ComputeHash(Encoding.UTF8.GetBytes(pass_));
+            pass_ = string.Empty;
             data_reg.operation = "registration";
 
         }
@@ -28,7 +32,7 @@ namespace ClientSide
                     result_flag = true;
                     break;
                 }
-
+            pass = string.Empty;
             return result_flag;
 
         }

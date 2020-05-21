@@ -10,9 +10,5 @@ namespace ClientSide
         {
             NameAccount = login; access_level = access;
         }
-        //static void FormingAccessList()
-        //{
-        //    redact = (from n in Notes.data_Notes where n.writer == NameAccount select n.name).ToList();
-        //}
     }
 }

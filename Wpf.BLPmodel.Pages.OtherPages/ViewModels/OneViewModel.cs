@@ -38,9 +38,6 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
 
-        //public string Password { get { return _Password; } set { SetProperty(ref _Password, value); } }
-
-        //public string ConfirmPassword { get { return _ConfirmPassword; } set { SetProperty(ref _ConfirmPassword, value); } }
 
         public OneViewModel()
         {
@@ -57,7 +54,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.AuthView);
         }
 
-        private void GoReg(object shortPageId)
+        private void GoReg(object shortPageId) //Регистрация
         {
             ErrorMessage = "";
             string result_send = SendtoServerReg(shortPageId);

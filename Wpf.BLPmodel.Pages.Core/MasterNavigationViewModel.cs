@@ -33,8 +33,8 @@ namespace Wpf.BLPmodel.Pages.Core
         }
         static public Data_Note NoteToRead = new Data_Note();
 
-        static protected string UserNameNavigator;
-        static protected int SecFlagNavigator;
+        static protected string UserNameNavigator; //Логин пользователя
+        static protected int SecFlagNavigator; // Уровень доступа пользователя
         public virtual bool KeepAlive
         {
             get

@@ -9,3 +9,4 @@ namespace Wpf.BLPmodel.Pages.Core.Extentions
         ThreeView = 4
     }
 }
+ 

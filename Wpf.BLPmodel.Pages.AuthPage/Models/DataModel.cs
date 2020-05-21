@@ -19,18 +19,16 @@ namespace ClientSide
     class Data_Note : Data_Model
     {
         public string name;//Название
-                           //    public string date;//Дата создания
-                           //      public string writer;//Автор
         public string data;//содержание
         public int secflag;//уровень допуска
 
     }
     [Serializable]
-    class Notes_
+    class Notes_ //Список заметок для отправки на сервер
     {
         public List<Data_Note> notes_;
     }
-    static class Serialize
+    static class Serialize //Класс для сериализации всех видов данных
     {
 
         public static string SerializeAuth(Data_Authentication ob)

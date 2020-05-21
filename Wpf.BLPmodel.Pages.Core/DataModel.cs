@@ -19,8 +19,6 @@ namespace ClientSide
     public class Data_Note : Data_Model
     {
         public string name;//Название
-                           //    public string date;//Дата создания
-                           //      public string writer;//Автор
         public string data;//содержание
         public int secflag;//уровень допуска
 

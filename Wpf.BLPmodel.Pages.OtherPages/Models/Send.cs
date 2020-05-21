@@ -24,7 +24,7 @@ namespace ClientSide
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 socket.Send(data);
 
-                // получаем ответ
+                // получение ответ
                 data = new byte[256]; // буфер для ответа
                 StringBuilder builder = new StringBuilder();
                 int bytes = 0; // количество полученных байт
@@ -47,7 +47,7 @@ namespace ClientSide
             }
             catch (SocketException ex)
             {
-                if (ex.ErrorCode == 10061)
+                if (ex.ErrorCode == 10061)//1061 код ошибки при не установленом соединение
                     return "Ошибка. Соединение не установленно!";
                 else return ex.Message;
             }

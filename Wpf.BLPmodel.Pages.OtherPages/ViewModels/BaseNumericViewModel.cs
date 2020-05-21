@@ -5,6 +5,9 @@ using Wpf.BLPmodel.Pages.Core.Extentions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
+    /// <summary>
+    /// Абстрактный класс для страниц
+    /// </summary>
     public abstract class BaseNumericViewModel : MasterNavigationViewModel
     {
 

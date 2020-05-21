@@ -32,7 +32,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         }
         public ICommand ChangePasswordCommand { get; set; }
 
-        private void ChangePassword_(object obj)
+        private void ChangePassword_(object obj)//Функция смены пароля
         {
             PasswordBox newpass = obj as PasswordBox;
             if (newpass.Password != null && newpass.Password != "")
@@ -63,11 +63,11 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         private int _SecFlag;
         public string UserName { get { return _UserName; } set { SetProperty(ref _UserName, value); } }
         public int SecFlag { get { return _SecFlag; } set { SetProperty(ref _SecFlag, value); } }
-        void GetUserName()
+        void GetUserName()//Получения имени пользователя для отображения на странице
         {
             _UserName = UserNameNavigator;
         }
-        void GetSecFlag()
+        void GetSecFlag()//Получения уровня доступа пользователя для отображения на странице
         {
             _SecFlag = SecFlagNavigator;
         }
