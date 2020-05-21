@@ -10,7 +10,7 @@
                      MinWidth="600"
 MinHeight="350"
          Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        Title="ShellWindow" >
+        Title="Bell–LaPadula model" >
 
     <ContentControl prism:RegionManager.RegionName="RegionShell" />
 </Window>
