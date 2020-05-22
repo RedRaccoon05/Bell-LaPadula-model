@@ -1,0 +1,96 @@
+﻿using ClientSide;
+using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Regions;
+using System.Windows.Controls;
+using System.Windows.Input;
+using Wpf.BLPmodel.Pages.Core;
+using Wpf.BLPmodel.Pages.Core.Extentions;
+namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
+{
+    public class RegistrationModel : MasterNavigationViewModel
+    {
+
+
+
+        public override bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public override void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            //var testParam = navigationContext.Parameters["TestParam"].ToString();
+            //MessageBox.Show(String.Format("тестовый параметра:{0}", testParam));
+        }
+
+        // данный метод и в контектсте перехода мы можем получить доступ к данному параметру
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            //var testParam = navigationContext.Parameters["TestParam"].ToString();
+            //MessageBo x.Show(String.Format("тестовый параметра:{0}", testParam));
+        }
+
+
+
+        private string _Login, _ErrorMessage;
+
+        public string Login { get { return _Login; } set { SetProperty(ref _Login, value); } }
+
+        public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
+
+
+        public RegistrationModel()
+        {
+            GoBackCommand = new DelegateCommand(GoBack);
+            GoRegCommand = new DelegateCommand<object>(GoReg);
+
+        }
+        public ICommand GoBackCommand { get; set; }
+
+        public ICommand GoRegCommand { get; set; }
+
+        private void GoBack()
+        {
+            Navigator.NavigateTo(PageNames.AuthView);
+        }
+
+        private void GoReg(object shortPageId) //Регистрация
+        {
+            ErrorMessage = "";
+            string result_send = SendtoServerReg(shortPageId);
+            if (result_send == "Ok")
+                GoBack();
+            else ErrorMessage = result_send;
+        }
+
+
+        private string SendtoServerReg(object shortPageId)
+        {
+            if (_Login != "" && _Login != null)
+            {
+                PasswordBox pwBox = shortPageId as PasswordBox;
+                string pass = pwBox.Password;
+
+
+
+                if (pass != "" && pass != null)
+                {
+                    if (Registration.Check_Pass(pass))
+                    {
+                        Registration.Reg_(_Login, pass);
+                        pass = string.Empty;
+                        string serdata = Serialize.SerializeAuth(Registration.data_reg);
+                        string result_send = SendData.Send_Data(serdata);
+                        return result_send;
+
+                    }
+                    else return "Пароль не соответствует требованиям безопасности";
+
+                }
+                else return "Введите пароль.";
+            }
+            else return "Введите логин.";
+
+        }
+    }
+}
