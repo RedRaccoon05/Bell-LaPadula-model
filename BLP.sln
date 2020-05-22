@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules", "Wpf.BLPmodel.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationModule", "Wpf.BLPmodel.NavigationModule\NavigationModule.csproj", "{A442F530-1DE7-43E8-AEC0-F1339D78DC4A}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ServerSide", "..\ServerSide\ServerSide.pyproj", "{9D8DC460-3BF6-49A4-9745-80AFD2EA61B9}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ServerSide", "ServerSide\ServerSide.pyproj", "{9D8DC460-3BF6-49A4-9745-80AFD2EA61B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
