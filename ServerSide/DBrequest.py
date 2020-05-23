@@ -56,13 +56,6 @@ def dbNoteAdd(Note):
     conn.commit()
     return "Ok"
 
-#def dbNoteEdit(Note):
-#    conn = sqlite3.connect("DataBase.db")
-#    cursor = conn.cursor()
-#    sql = "UPDATE Notes SET Data".format(Note.name,Note.secflag,Note.data)
-#    cursor.execute(sql)
-#    conn.commit()
-#    return "Ok"
 
 def dbNoteDelete(Note):
     conn = sqlite3.connect("DataBase.db")

@@ -6,7 +6,6 @@ import json
 import DBrequest
 import re
 import base64
-#TODO фича смены пароля
 SERVER_ADDRESS = ('127.0.0.1', 1337)
 
 # Говорит о том, сколько дескрипторов единовременно могут быть открыты
@@ -18,36 +17,30 @@ OUTPUTS = list()
 
 def DataParser(data):
     deser = json.loads(data)
-    
+    # поле operation определяет операцию для действий с логином и/или паролем, т. е. там где указан type равный auth
     if  str(type(deser))=='<class \'dict\'>' and deser['type'] == 'auth':
         if deser['operation'] == 'authentication':
             Data_Authentication = Data_Model.Authentication(deser['login'],deser['password'],deser['operation'])
             result = DBrequest.dbAuth(Data_Authentication)
-            #result = re.search('(\d+)',str(result))
-            #result = result.group(0)
-            #TODO Процесс авторизации, зполнение объекта пользователя и тд
             return result
             
         elif deser['operation'] == 'registration':
             Data_Registration = Data_Model.Authentication(deser['login'],deser['password'],deser['operation'])
             return DBrequest.dbReg(Data_Registration)
 
-        elif deser['operation'] == 'changepassword':
+        elif deser['operation'] == 'changepassword':#смена пароля
             Data_Change_Password = Data_Model.Authentication(deser['login'],deser['password'],deser['operation'])
             return DBrequest.dbChangePassword(Data_Change_Password)
-
+        #type для заметок: добавление, удаление, проверка на существование
     elif deser['type'] == 'addNote':
-        #deser = json.loads(data)
         Data_Notes = Data_Model.Note(deser['name'],deser['data'],deser['secflag'])
         return DBrequest.dbNoteAdd(Data_Notes)
     elif deser['type'] == 'deleteNote':
         Data_Notes = Data_Model.Note(deser['name'],deser['data'],deser['secflag'])
         return DBrequest.dbNoteDelete(Data_Notes)
-    elif deser['type'] == 'checkexist':
+    elif deser['type'] == 'checkexist':#Проверка на существование заметки с таким же названием
         Data_Notes = Data_Model.Note(deser['name'],deser['data'],deser['secflag'])
         return DBrequest.dbNoteExist(Data_Notes)
-   # ob = Data_Model.Note("aa",'bb',1337)
-                 #   DBrequest.dbNoteAdd(ob)
 
 def Notes_Response(flag):
     res = DBrequest.dbNoteRes(flag)
@@ -58,7 +51,7 @@ def Notes_Response(flag):
     a = json.dumps(ob,indent = 3,cls = Data_Model.NotesEncoder,ensure_ascii=False)
     return a
 
-def Notes_Access_Parser(data):
+def Notes_Access_Parser(data):#Парс уровня доступа пользователя
     try:
         result = re.search(str('GetNotes'),str(data))
         result = result.group(0)
@@ -113,16 +106,12 @@ def handle_readables(readables, server):
                 
 
                 print("getting data: {data}".format(data=data.decode('utf-8')))
-                aa, bb = Notes_Access_Parser(data)
-                if aa:
-                    result = Notes_Response(bb)
+                accessFlag_Check, Access_Flag = Notes_Access_Parser(data)
+                if accessFlag_Check:
+                    result = Notes_Response(Access_Flag)
                     
                 else: 
                     result = DataParser(data)
-       #         result = BDrequest.dbNoteRes(2)
-                #vv= str(result)
-                #aa = re.search('(\d+)',vv)
-                #result = aa.group(0)
                 send_res = result.encode("UTF-8")
                 result = base64.b64encode(send_res)
                 result = result.decode('utf-8')
