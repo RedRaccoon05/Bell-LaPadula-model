@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 namespace ClientSide
 {
     static class Data_Account
@@ -14,9 +10,5 @@ namespace ClientSide
         {
             NameAccount = login; access_level = access;
         }
-        //static void FormingAccessList()
-        //{
-        //    redact = (from n in Notes.data_Notes where n.writer == NameAccount select n.name).ToList();
-        //}
     }
 }

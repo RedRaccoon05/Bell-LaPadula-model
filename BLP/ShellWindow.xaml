@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Wpf.BLPmodel"
         mc:Ignorable="d"
         xmlns:prism="http://www.codeplex.com/CompositeWPF"
-
-                     MinWidth="600"
-MinHeight="350"
-         Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        Title="ShellWindow" >
+        Icon="/Resources/icon.png"
+        MinWidth="600"
+        MinHeight="350"
+        Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="Bell–LaPadula model" >
 
     <ContentControl prism:RegionManager.RegionName="RegionShell" />
 </Window>

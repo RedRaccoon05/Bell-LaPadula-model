@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
-using Wpf.BLPmodel.Pages.Core;
-
 using System.Windows.Input;
-
+using Wpf.BLPmodel.Pages.Core;
 using Wpf.BLPmodel.Pages.Core.Extentions;
-using Microsoft.Practices.Prism.Commands;
 using Wpf.BLPmodel.Pages.OtherPages.Views;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
@@ -37,7 +30,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
-            GetSecFlag();
+            GetSecFlag(); //Получения флага уровня доступа для отобрашение на странице
         }
         public ICommand GoSettingsCommand { get; set; }
         public ICommand GoBackNotesCommand { get; set; }
@@ -59,7 +52,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Navigator.NavigateTo(PageNames.ThreeView);
         }
 
-        private void GoExit()
+        private void GoExit() //Выход на страницу входа
         {
             Mode.ModeFlag = GetNote.Grid;
             Navigator.NavigateTo(PageNames.AuthView);

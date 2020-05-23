@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Practices.Prism.Regions;
-using Wpf.BLPmodel.Pages.Core;
-using System.Windows.Input;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Commands;
-using System.Windows;
-using Wpf.BLPmodel.Pages.Core.Extentions;
+using Microsoft.Practices.Prism.Regions;
+using System;
 using System.Windows.Controls;
-using ClientSide;
-using Wpf.BLPmodel.Pages.AuthPage.Views;
+using System.Windows.Input;
+using Wpf.BLPmodel.Pages.Core;
+using Wpf.BLPmodel.Pages.Core.Extentions;
 namespace Wpf.BLPmodel.Pages.AuthPage.ViewModels
 {
     public class AuthViewModel : MasterNavigationViewModel

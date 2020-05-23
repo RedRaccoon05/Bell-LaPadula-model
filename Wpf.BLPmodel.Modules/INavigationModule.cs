@@ -2,15 +2,17 @@
 using Microsoft.Practices.Prism.Regions;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 
-namespace Wpf.BLPmodel.Modules {
-    public interface INavigationModule : IModule {
+namespace Wpf.BLPmodel.Modules
+{
+    public interface INavigationModule : IModule
+    {
 
         // были добавлено пара методов которые будт отвечать за навигацию.
 
-            /// <summary>
-            /// без параметров
-            /// </summary>
-            /// <param name="pageName"></param>
+        /// <summary>
+        /// без параметров
+        /// </summary>
+        /// <param name="pageName"></param>
         void NavigateTo(PageNames pageName);
 
         /// <summary>

@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Microsoft.Practices.Prism.Commands;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Regions;
-using ClientSide;
-using Wpf.BLPmodel.Pages.Core;
 using System.Windows;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Wpf.BLPmodel.Pages.OtherPages.Views;
-using System.Text.RegularExpressions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
+    /// <summary>
+    /// Редактирование заметок
+    /// </summary>
     class EditingNoteViewModel : WriteNoteViewModel
     {
         public EditingNoteViewModel()
         {
-            DataNote = NoteToRead.data;
+            DataNote = NoteToRead.data;//инициализируем заметку данными выбранной заметки
             NameNote = NoteToRead.name;
 
         }
@@ -41,17 +34,17 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
 
             Data_Note note = new Data_Note { data = DataNote, name = NameNote, secflag = SecFlagNavigator };
-            if (CheckExist(note)|| note.name ==NoteToRead.name)
+            if (CheckExist(note) || note.name == NoteToRead.name)// Проверка изменения заметки
             {
                 note.data = NoteToRead.data; note.name = NoteToRead.name; note.secflag = SecFlagNavigator;
-                note.type = "deleteNote";
+                note.type = "deleteNote";// сначало удалим старую заметку
                 string serdata = Serialize.SerializeNote(note);
                 string result = SendData.Send_Data(serdata);
                 if (result == "Ok")
                 {
                     note = new Data_Note { data = DataNote, name = NameNote, secflag = SelectedSecFlag, type = "addNote" };
                     serdata = Serialize.SerializeNote(note);
-                    result = SendData.Send_Data(serdata);
+                    result = SendData.Send_Data(serdata);//потом добавим новую
                     if (result == "Ok")
                     {
                         MessageBox.Show("Заметка отредактирована");

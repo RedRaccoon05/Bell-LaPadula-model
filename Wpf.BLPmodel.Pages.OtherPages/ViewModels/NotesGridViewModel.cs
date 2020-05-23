@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
-using ClientSide;
-using Wpf.BLPmodel.Pages.Core;
-using System.Windows;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Wpf.BLPmodel.Pages.OtherPages.Views;
-using System.Text.RegularExpressions;
 
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
@@ -36,19 +29,19 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         {
             MouseDoubleClickCommand = new DelegateCommand<object>(NoteReader);
             AddNoteCommand = new DelegateCommand(NoteWriter);
-            GetNotestoServ();
+            GetNotestoServ(); //Получение заметок с сервера
             notesViewer = new NotesViewer(notes);
             DataGridSource = notesViewer._notesViewer;
             Navigator.NavigateTo(PageNames.OneView);
         }
-        void NoteReader(object ob)
+        void NoteReader(object ob)//Переход на страницу чтения
         {
 
             NoteViewer Notes = ob as NoteViewer;
             NoteToRead.name = Notes.name;
             foreach (var note in notes.notes_)
             {
-                if(note.name == Notes.name)
+                if (note.name == Notes.name)// Фикс двойного экранирования \n
                 {
                     string replaceable = @"\\n";
                     string replacement = "\n";
@@ -60,9 +53,9 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             Mode.ModeFlag = GetNote.Read;
             Navigator.NavigateTo(PageNames.OneView);
             Navigator.NavigateTo(PageNames.ThreeView);
-            
+
         }
-        void NoteWriter()
+        void NoteWriter()//Переход на страницу создания новой заметки
         {
             Mode.ModeFlag = GetNote.Write;
             Navigator.NavigateTo(PageNames.OneView);
@@ -83,13 +76,13 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 
         }
 
-         public override void OnNavigatedTo(NavigationContext navigationContext)
+        public override void OnNavigatedTo(NavigationContext navigationContext)
         {
 
         }
-        public ICommand MouseDoubleClickCommand { get; set; }
+        public ICommand MouseDoubleClickCommand { get; set; } // Срабатывает при двойном клике
         public ICommand AddNoteCommand { get; set; }
-       
+
         NotesViewer notesViewer;
         Notes_ notes = new Notes_();
         private List<NoteViewer> _DataGridSource;

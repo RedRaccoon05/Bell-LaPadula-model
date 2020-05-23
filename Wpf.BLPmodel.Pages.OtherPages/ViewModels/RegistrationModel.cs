@@ -7,7 +7,7 @@ using Wpf.BLPmodel.Pages.Core;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
 {
-    public class OneViewModel : MasterNavigationViewModel
+    public class RegistrationModel : MasterNavigationViewModel
     {
 
 
@@ -39,7 +39,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
         public string ErrorMessage { get { return _ErrorMessage; } set { SetProperty(ref _ErrorMessage, value); } }
 
 
-        public OneViewModel()
+        public RegistrationModel()
         {
             GoBackCommand = new DelegateCommand(GoBack);
             GoRegCommand = new DelegateCommand<object>(GoReg);

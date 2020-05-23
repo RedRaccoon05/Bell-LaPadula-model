@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pages", "Pages", "{05471341-B8BD-443B-8FBE-B58292E9CFC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{80F2F470-D0FB-4990-8E92-0BF98191DC78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.OtherPages", "Wpf.BLPmodel.Pages.OtherPages\Pages.OtherPages.csproj", "{23334A54-F53D-47AF-80B3-B144E40AE026}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.MenuPage", "Wpf.BLPmodel.Pages.MenuPage\Pages.MenuPage.csproj", "{9D62DD17-7197-4DA2-B195-6D8A828A2AAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages.Core.Extentions", "Wpf.BLPmodel.Pages.Core.Extentions\Pages.Core.Extentions.csproj", "{30198D54-5286-49F3-B859-2BDB8367433C}"
 EndProject
@@ -23,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules", "Wpf.BLPmodel.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationModule", "Wpf.BLPmodel.NavigationModule\NavigationModule.csproj", "{A442F530-1DE7-43E8-AEC0-F1339D78DC4A}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ServerSide", "ServerSide\ServerSide.pyproj", "{9D8DC460-3BF6-49A4-9745-80AFD2EA61B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,10 +33,6 @@ Global
 		{23334A54-F53D-47AF-80B3-B144E40AE026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23334A54-F53D-47AF-80B3-B144E40AE026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23334A54-F53D-47AF-80B3-B144E40AE026}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D62DD17-7197-4DA2-B195-6D8A828A2AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D62DD17-7197-4DA2-B195-6D8A828A2AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D62DD17-7197-4DA2-B195-6D8A828A2AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D62DD17-7197-4DA2-B195-6D8A828A2AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30198D54-5286-49F3-B859-2BDB8367433C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30198D54-5286-49F3-B859-2BDB8367433C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30198D54-5286-49F3-B859-2BDB8367433C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,13 +57,14 @@ Global
 		{A442F530-1DE7-43E8-AEC0-F1339D78DC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A442F530-1DE7-43E8-AEC0-F1339D78DC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A442F530-1DE7-43E8-AEC0-F1339D78DC4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8DC460-3BF6-49A4-9745-80AFD2EA61B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8DC460-3BF6-49A4-9745-80AFD2EA61B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{23334A54-F53D-47AF-80B3-B144E40AE026} = {05471341-B8BD-443B-8FBE-B58292E9CFC7}
-		{9D62DD17-7197-4DA2-B195-6D8A828A2AAB} = {05471341-B8BD-443B-8FBE-B58292E9CFC7}
 		{30198D54-5286-49F3-B859-2BDB8367433C} = {05471341-B8BD-443B-8FBE-B58292E9CFC7}
 		{494AC326-F33B-40DC-9D80-77F2B8E3530E} = {05471341-B8BD-443B-8FBE-B58292E9CFC7}
 		{4B5624D6-0E04-4A25-9AF7-C9EF40A5A5ED} = {05471341-B8BD-443B-8FBE-B58292E9CFC7}
@@ -75,6 +72,6 @@ Global
 		{A442F530-1DE7-43E8-AEC0-F1339D78DC4A} = {80F2F470-D0FB-4990-8E92-0BF98191DC78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {971A2E7C-532D-41AC-92B6-23872BFB8296}
+		SolutionGuid = {B6D83AD1-4CC1-4A48-8C73-D44E2866D3B1}
 	EndGlobalSection
 EndGlobal

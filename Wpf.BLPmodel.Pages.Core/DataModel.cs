@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 namespace ClientSide
 {
-  public  class Data_Model
+    public class Data_Model
     {
-       public string type;
+        public string type;
     }
 
     [Serializable]
@@ -19,17 +16,15 @@ namespace ClientSide
         public string operation;//авторизация, регистрация, смена пароля
     }
     [Serializable]
-   public class Data_Note: Data_Model
+    public class Data_Note : Data_Model
     {
         public string name;//Название
-    //    public string date;//Дата создания
-  //      public string writer;//Автор
         public string data;//содержание
         public int secflag;//уровень допуска
-        
+
     }
     [Serializable]
-   public class Notes_
+    public class Notes_
     {
         public List<Data_Note> notes_ = new List<Data_Note>();
     }
@@ -40,7 +35,7 @@ namespace ClientSide
         {
             return JsonConvert.SerializeObject(ob);
         }
-        public static string SerializeNoteRequest(string options,string account)
+        public static string SerializeNoteRequest(string options, string account)
         {
             return JsonConvert.SerializeObject(options + account);
         }

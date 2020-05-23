@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using ClientSide;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Regions;
-using ClientSide;
-using Wpf.BLPmodel.Pages.Core;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using Wpf.BLPmodel.Pages.Core.Extentions;
 using Wpf.BLPmodel.Pages.OtherPages.Views;
 
@@ -24,7 +18,7 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             for (int i = SecFlagNavigator; i != 0; i--)
                 _ComboSource.Add(i.ToString());
             ComboSource = _ComboSource;
-      
+
         }
 
         public override bool IsNavigationTarget(NavigationContext navigationContext)
@@ -46,9 +40,9 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             {
                 SendNotetoServ();
             }
-            else if((_DataNote == "" || _DataNote == null) && (_NameNote == "" || _NameNote == null) )
+            else if ((_DataNote == "" || _DataNote == null) && (_NameNote == "" || _NameNote == null))
                 MessageBox.Show("Введите название и текст заметки");
-            else if(_DataNote == "" || _DataNote == null)
+            else if (_DataNote == "" || _DataNote == null)
                 MessageBox.Show("Введите текст заметки");
             else MessageBox.Show("Введите название заметки");
         }
@@ -70,21 +64,21 @@ namespace Wpf.BLPmodel.Pages.OtherPages.ViewModels
             }
             else MessageBox.Show("Заметка с таким названием уже существует");
         }
-       protected bool CheckExist(Data_Note note)
+        protected bool CheckExist(Data_Note note) //Проверка названия заметки на уникальность
         {
             note.type = "checkexist";
             string serdata = Serialize.SerializeNote(note);
             string result = SendData.Send_Data(serdata);
             return (result == "Ok");
-            
+
         }
         public ICommand AddNoteCommand { get; set; }
         private string _DataNote;
         private string _NameNote;
         private int _SelectedSecFlag;
         public int SelectedSecFlag { get { return _SelectedSecFlag; } set { SetProperty(ref _SelectedSecFlag, value); } }
-        public List<string> _ComboSource = new List<string>();
-        public IEnumerable<string> ComboSource { get;  set; }
+        public List<string> _ComboSource = new List<string>();//Список доступных уровней доступа
+        public IEnumerable<string> ComboSource { get; set; } 
         public string DataNote { get { return _DataNote; } set { SetProperty(ref _DataNote, value); } }
         public string NameNote { get { return _NameNote; } set { SetProperty(ref _NameNote, value); } }
     }

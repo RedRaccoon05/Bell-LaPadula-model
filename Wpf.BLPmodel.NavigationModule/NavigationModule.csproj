@@ -110,10 +110,6 @@
       <Project>{494ac326-f33b-40dc-9d80-77f2b8e3530e}</Project>
       <Name>Pages.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Wpf.BLPmodel.Pages.MenuPage\Pages.MenuPage.csproj">
-      <Project>{9d62dd17-7197-4da2-b195-6d8a828a2aab}</Project>
-      <Name>Pages.MenuPage</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Wpf.BLPmodel.Pages.OtherPages\Pages.OtherPages.csproj">
       <Project>{23334a54-f53d-47af-80b3-b144e40ae026}</Project>
       <Name>Pages.OtherPages</Name>
