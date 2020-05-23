@@ -133,17 +133,17 @@
     <Compile Include="Views\NotesGridView.xaml.cs">
       <DependentUpon>NotesGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OneView.xaml.cs">
-      <DependentUpon>OneView.xaml</DependentUpon>
+    <Compile Include="Views\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReadNoteView.xaml.cs">
       <DependentUpon>ReadNoteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThreeView.xaml.cs">
-      <DependentUpon>ThreeView.xaml</DependentUpon>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TwoView.xaml.cs">
-      <DependentUpon>TwoView.xaml</DependentUpon>
+    <Compile Include="Views\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WriteNoteView.xaml.cs">
       <DependentUpon>WriteNoteView.xaml</DependentUpon>
@@ -164,7 +164,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OneView.xaml">
+    <Page Include="Views\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,11 +172,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ThreeView.xaml">
+    <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TwoView.xaml">
+    <Page Include="Views\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
